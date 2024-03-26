@@ -1,4 +1,4 @@
- 
+<!--  
     <div class="menu row{if !count($headerlinks)} small{/if}">
         <nav class="innermenu row container relative">
             {if count($headerlinks)}
@@ -57,4 +57,4 @@
             {/dynamic}
         </nav>
     </div>
-    
+     -->

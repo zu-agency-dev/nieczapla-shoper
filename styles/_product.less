@@ -12,14 +12,6 @@
   }
 }
 
-.basket {
-  form {
-    .short {
-      width: 30px;
-    }
-  }
-}
-
 .viewphot {
   .product {
     margin-top: 15px;
@@ -234,10 +226,6 @@
           overflow: hidden;
           border: 0;
           max-width: 100%;
-
-          img {
-            max-height: 195px;
-          }
         }
 
         span {
@@ -1828,5 +1816,76 @@
   .product.product_view-extended .description .basket {
     display: block;
     text-align: right;
+  }
+}
+
+// Custom CSS
+.product__details--wrapper {
+  display: flex;
+  border-top: 1px solid @fontBasicColor;
+  .product__details--text-wrapper {
+    flex: 1;
+  }
+  .buttons {
+    flex: 0;
+    .basket {
+      height: 100%;
+      fieldset {
+        height: 100%;
+        .addtobasket {
+          height: 100%;
+          span {
+            white-space: nowrap;
+            font-size: 0.75rem;
+          }
+        }
+      }
+      form {
+        .short {
+          width: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .product-inner-wrap { padding: 0; }
+  .product__details--wrapper {
+    flex-direction: column;
+    .basket {
+      width: 100%;
+      fieldset {
+        width: 100%;
+        .addtobasket {
+          width: 100%;
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
+
+.prodimage {
+  aspect-ratio: 1;
+  .img-wrap {
+    img {
+      aspect-ratio: 1;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .prodimage {
+    .img-wrap {
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
