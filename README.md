@@ -1,0 +1,1 @@
+# nieczapla-shoper
