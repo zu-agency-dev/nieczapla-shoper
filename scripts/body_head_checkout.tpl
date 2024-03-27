@@ -7,7 +7,7 @@
                 {if $seo_has_blank_logo}
                     {$seo_logo_title|escape}
                 {else}
-                    <img src="{$path}{$seo_logo_img|escape}" alt="{$seo_logo_title|escape}">
+                    <img class="logo-bar__brand" src="{$path}{$seo_logo_img|escape}" alt="{$seo_logo_title|escape}">
                 {/if}
             </a>
 

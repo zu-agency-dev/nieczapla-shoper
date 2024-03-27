@@ -94,6 +94,7 @@ button,
 html input[type="button"],
 input[type="reset"],
 input[type="submit"] {
+    appearance: button;
     -webkit-appearance: button;
 }
 
