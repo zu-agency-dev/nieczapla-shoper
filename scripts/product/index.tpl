@@ -20,17 +20,17 @@
 
                     {if 1 == $product->translation->active || $adminPreview == true}
                         <div class="box row" id="box_productfull" data-category="{$product->defaultCategory->translation->name|escape}">
-                            <div class="boxhead">
+                            <!-- <div class="boxhead">
                                 <h1 class="name{if $visibility.gallery_and_name_gray} product_inactive{/if}" itemprop="name">
                                     {$product->translation->name|escape}
                                 </h1>
-                            </div>
+                            </div> -->
 
                             <div class="innerbox product-main-box" data-loading="{translate key="File upload in progress"}...">
                                 <div class="maininfo row">
                                     <div class="f-row">
                                         {include file='product/gallery.tpl'}
-                                        <div class=" f-grid-6">
+                                        <div class="single-product__content-wrapper f-grid-6">
                                             <div class="availability row">
                                                 {if $product->defaultStock &&
                                                     ( 1 == $skin_settings->productdetails->availability ||
@@ -54,6 +54,11 @@
                                                     {/if}
                                                     
                                                     <div class="row">
+                                                      <div class="boxhead">
+                                                          <h1 class="name{if $visibility.gallery_and_name_gray} product_inactive{/if}" itemprop="name">
+                                                              {$product->translation->name|escape}
+                                                          </h1>
+                                                      </div>
                                                         {if 1 == $skin_settings->productdetails->availability && $product->defaultStock->availability && $product->defaultStock->availability->translation}
                                                             <div class="row availability">
                                                                 <span class="first">{translate key="Availability"}:</span>

@@ -14,7 +14,7 @@
             {if $product->product->producer_id}data-producer="{$product->producer->manufacturer->name|escape}" {/if}
             class="oneperrow f-row product product_view-extended {$columnCounter}{if $product->readVisibilityConfigFlag($listItemGrayFlag)} product_inactive{/if}">
             <div class="f-row description">
-              <h3 class="small tablet  f-grid-12">
+              <h3 class="small tablet f-grid-12">
                 <a href="{route function=$productRoute key=$product->product->product_id productName=$product->translation->name productId=$product->product->product_id}"
                   title="{$product->translation->name|escape}" rel="nofollow">
                   {$product->translation->name|escape}
@@ -59,8 +59,7 @@
                         <span class="availability">{translate key="Availability"}:</span>
                         <span class="availability">{if $product->defaultStock->availability->availability->photo}
                             <img src="{baseDir}/{$product->defaultStock->availability->getUrl()}" alt="" />
-                            {/if
-                                                                                              }{$product->defaultStock->availability->translation->name}</span>
+                            {/if}{$product->defaultStock->availability->translation->name}</span>
                         {/if}
                         {if 1 == (int) $skin_settings->$settingsgroup->showdelivery && $product->canBuyStock() && $product->defaultStock->delivery}
                         </p>
@@ -457,12 +456,12 @@
           {/foreach}
         </div>
       {elseif 'phot' == $view}
-        <div class="products products_extended view{$view} s-row" {if $price_mode == '2'}data-netto="true" {/if}>
+        <div class="products view{$view} zu-grid" {if $price_mode == '2'}data-netto="true" {/if}>
           {foreach from=$products item=product name=prodlist}
             <div data-product-id="{$product->product->product_id}"
               data-category="{$product->defaultCategory->translation->name|escape}"
               {if $product->product->producer_id}data-producer="{$product->producer->manufacturer->name|escape}" {/if}
-              class="product product_view-extended s-grid-4 product-main-wrap{if $additional_tax_info == '1'} additional-info{/if}{if $unit_price_calculation} unit-price-info{/if}{if $product->readVisibilityConfigFlag($listItemGrayFlag)} product_inactive{/if}{if $showLowestPriceHistory && $isLowestPriceVisible} product_with-lowest-price{/if}{if $product->currency and $currency->getIdentifier() != $product->currency->getIdentifier()} product_with-currency{/if}">
+              class="product product_view-extended product-main-wrap{if $additional_tax_info == '1'} additional-info{/if}{if $unit_price_calculation} unit-price-info{/if}{if $product->readVisibilityConfigFlag($listItemGrayFlag)} product_inactive{/if}{if $showLowestPriceHistory && $isLowestPriceVisible} product_with-lowest-price{/if}{if $product->currency and $currency->getIdentifier() != $product->currency->getIdentifier()} product_with-currency{/if}">
               <div class="product-inner-wrap">
                 <a class="prodimage f-row" href="{route function=$productRoute key=$product->product->product_id productName=$product->translation->name
                             productId=$product->product->product_id}" title="{$product->translation->name|escape}"
@@ -865,11 +864,11 @@
                         {/dynamic}
                       {/if}
 
-                      <a class="btn large tablet quickview" {if $enablebasket}data-price="true" {/if}
-                        data-eval="{$skin_settings->productdetails->score}" data-id="{$product->product->product_id}">
-                        <img class="px1" alt=""
-                          src="{baseDir}/libraries/images/1px.gif"><span>{translate key="check more"}</span>
-                      </a>
+                        <a class="btn large tablet quickview none" {if $enablebasket}data-price="true" {/if}
+                          data-eval="{$skin_settings->productdetails->score}" data-id="{$product->product->product_id}">
+                          <img class="px1" alt=""
+                            src="{baseDir}/libraries/images/1px.gif"><span>{translate key="check more"}</span>
+                        </a>
                   </div>
                 </div>
               </div>

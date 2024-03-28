@@ -146,10 +146,10 @@
   &.viewphot {
     .product {
       border: 1px solid @borderColor;
-      padding: 1em;
+      // padding: 1em;
       text-align: center;
       position: relative;
-      height: 470px;
+      // height: 470px;
       .box-sizing;
 
       &.additional-info {
@@ -352,15 +352,18 @@
     .mainimg {
       display: block;
       overflow: hidden;
-      height: 350px;
-      margin-bottom: 1em;
+      // height: 350px;
+      // margin-bottom: 1rem;
       border: 1px solid @borderColor;
       text-align: center;
-      line-height: 350px;
+      // line-height: 350px;
       cursor: pointer;
 
       img {
+        width: 100%;
         max-height: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
       }
     }
   }
@@ -912,25 +915,31 @@
     margin-bottom: 2em;
 
     ul {
-      border-bottom: 1px solid @borderColor;
+      // border-bottom: 1px solid @borderColor;
+      display: flex;
+      justify-content: space-between;
 
       li {
-        display: inline-block;
-        padding: 0 5px;
+        // display: inline-block;
+        width: 100%;
+        text-align: center;
         cursor: pointer;
 
         .boxhead {
-          padding: 1px 15px 0 11px;
+          // padding: 1px 15px 0 11px;
           position: relative;
+          padding: 1rem 0;
+          background-color: white;
 
           &.active {
-            padding: 0 14px 0 10px;
-            border-top: 1px solid @borderColor;
-            border-left: 1px solid @borderColor;
-            border-right: 1px solid @borderColor;
+            // padding: 0 14px 0 10px;
+            // border-top: 1px solid @borderColor;
+            // border-left: 1px solid @borderColor;
+            // border-right: 1px solid @borderColor;
+            background-color: @maincolor;
 
             &::after {
-              border-bottom: 1px solid @colorWhite;
+              // border-bottom: 1px solid @colorWhite;
               bottom: -1px;
               content: "";
               display: block;
@@ -940,14 +949,16 @@
             }
 
             h3 {
-              color: @fontBasicColor;
+              // color: @fontBasicColor;
+              color: @fontLightColor !important;
             }
           }
 
           h3 {
             font-size: 1.4em;
             margin: 0;
-            color: @borderColor;
+            // color: @borderColor;
+            color: @maincolor !important;
           }
         }
       }
@@ -1778,22 +1789,22 @@
 }
 
 .price__additional-info {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
 .product-innerdesc-wrap .price.price_quickview {
-  font-size: 1em;
+  font-size: 1rem;
   color: @fontBasicColor;
   text-align: left;
 }
 
 .price__value {
-  font-size: 1.4em;
+  font-size: 1.5rem;
   color: @maincolor;
 }
 
 .modal .product-innerdesc-wrap .price.price_quickview em.default-currency {
-  font-size: 1.4em;
+  font-size: 1.5rem;
 }
 
 .modal .product-innerdesc-wrap .basket {
@@ -1822,6 +1833,7 @@
 // Custom CSS
 .product__details--wrapper {
   display: flex;
+  background-color: @fontLightColor;
   border-top: 1px solid @fontBasicColor;
   .product__details--text-wrapper {
     flex: 1;
@@ -1834,15 +1846,16 @@
         height: 100%;
         .addtobasket {
           height: 100%;
+          padding: 1rem 2rem;
           span {
             white-space: nowrap;
-            font-size: 0.75rem;
+            font-size: .875rem;
           }
         }
       }
       form {
         .short {
-          width: 30px;
+          width: 2rem;
         }
       }
     }

@@ -2,7 +2,8 @@
     <div class="menu row{if !count($headerlinks)} small{/if}">
         <nav class="innermenu row container relative">
             {if count($headerlinks)}
-                <ul class="menu-list large standard">
+                <!-- <ul class="menu-list large standard"> -->
+                <ul class="menu-list">
                     <li class="home-link-menu-li">
                         <h3>
                             <a href="{baseDir nonempty=1}" title="{translate key='Home page'}">
@@ -32,7 +33,8 @@
             {/if}
 
             {dynamic}
-                <ul class="menu-mobile rwd-show-medium rwd-hide-full">
+                <!-- <ul class="menu-mobile rwd-show-medium rwd-hide-full"> -->
+                <ul class="menu-mobile standard rwd-hide-full">
                     <li class="menu-mobile-li small-menu flex flex-4">
                         <a href="{baseDir nonempty=1}" title="{translate key='Menu'}" class="fa fa-align-justify">
                             <img src="{baseDir}/libraries/images/1px.gif" alt="" class="px1">

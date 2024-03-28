@@ -3,14 +3,14 @@
 {include file='body_head.tpl'}
     <div class="main row">
         <div class="innermain container">
-            <div class="s-row">
+            <div class="f-row">
                 {if 0 < $boxes_left_side|@count}
-                    <div class="leftcol s-grid-3">
+                    <div class="leftcol f-grid-3">
                         {boxesLeft}
                     </div>
                 {/if}
 
-                <div class="centercol {if ($boxes_left_side|@count == 0) and ($boxes_right_side|@count == 0)}s-grid-12{elseif 0 != $boxes_left_side|@count and $boxes_right_side|@count != 0}s-grid-6{else}s-grid-9{/if}">
+                <div class="centercol {if ($boxes_left_side|@count == 0) and ($boxes_right_side|@count == 0)}f-grid-12{elseif 0 != $boxes_left_side|@count and $boxes_right_side|@count != 0}f-grid-6{else}f-grid-9{/if}">
                     {boxesTop}
 
                     {if 'search' == $list_type}
@@ -171,7 +171,7 @@
                 </div>
 
                 {if 0 < $boxes_right_side|@count}
-                    <div class="rightcol large s-grid-3">
+                    <div class="rightcol large f-grid-3">
                         {boxesRight}
                     </div>
                 {/if}

@@ -1,1 +1,2 @@
-# nieczapla-shoper
+# Nieczapla Coffee Roasters
+### Shoper Template

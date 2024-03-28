@@ -42,8 +42,7 @@
 /* Static grid */
 
 .s-row {
-    margin-left: -20px;
-
+    // margin-left: -20px;
     // [class*='s-grid'] {
     //     margin-left: 20px;
     // }
@@ -107,7 +106,7 @@
         float: left;
         width: 100%;
         min-height: 30px;
-        margin-left: 2.1276595745%;
+        // margin-left: 2.1276595745%;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
@@ -164,6 +163,35 @@
     .f-grid-12 {
         width: 100%;
     }
+
+    // @media (max-width: @breakPointSm) {
+    //     each(range(12), {
+    //         f-sm-grid-@{value} {
+    //             width: calc(100% / @value)
+    //         }
+    //     })
+    // }
+    // @media (min-width: @breakPointSm) and (max-width: @breakPointMd) {
+    //     each(range(12), {
+    //         f-md-grid-@{value} {
+    //             width: calc(100% / @value)
+    //         }
+    //     })
+    // }
+    // @media (min-width: @breakPointMd) and (max-width: @breakPointLg) {
+    //     each(range(12), {
+    //         f-lg-grid-@{value} {
+    //             width: calc(100% / @value)
+    //         }
+    //     })
+    // }
+    // @media (max-width: @breakPointLg) {
+    //     each(range(12), {
+    //         f-xl-grid-@{value} {
+    //             width: calc(100% / @value)
+    //         }
+    //     })
+    // }
 }
 
 /*  New Flex Grid */
@@ -218,3 +246,10 @@
 }
 
 .generate-spacing(10, 1);
+
+.zu-grid {
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 2rem;
+}

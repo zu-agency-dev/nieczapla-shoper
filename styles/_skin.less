@@ -555,7 +555,7 @@ header {
 
   .innermenu {
     width: auto;
-    background-color: @menuBg;
+    // background-color: @menuBg;
     // height: 3rem;
     line-height: 3rem;
 
@@ -825,12 +825,7 @@ header {
   .boxhead {
     border: 0;
     position: relative;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) calc(~"50% - 1px"),
-      @boxHeadBorder calc(50%),
-      rgba(0, 0, 0, 0) calc(~"50% + 1px")
-    );
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) calc(~"50% - 1px"), @boxHeadBorder calc(50%), rgba(0, 0, 0, 0) calc(~"50% + 1px"));
     margin-bottom: 10px;
 
     & > span,
@@ -838,14 +833,15 @@ header {
     h3 {
       background-color: @color0;
       color: @boxHead;
-      padding: 0 8px 0 0;
-      font-size: 16px;
-      font-weight: bold;
-      letter-spacing: 4px;
-      line-height: 0.94;
+      padding: 0 .5rem 0 0;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      // font-size: 2.25rem;
+      // letter-spacing: .25rem;
+      // line-height: 0.94;
       display: inline-block;
       margin: 0;
-      text-transform: uppercase;
     }
   }
 
@@ -866,10 +862,12 @@ header {
   }
 
   .productname {
-    font-size: 16px;
-    height: 2.35em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 2.35rem;
     color: @color2;
-    font-weight: normal;
 
     &:hover {
       color: @maincolor;
@@ -927,8 +925,7 @@ header {
   }
 
   .product {
-    padding: 10px;
-
+    // padding: 10px;
     .price {
       margin-bottom: 0;
     }
@@ -1552,8 +1549,10 @@ article {
     .box-sizing();
 
     em {
-      font-size: 17px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
       font-weight: bold;
+      text-transform: uppercase;
       color: @color1;
       clear: both;
 
@@ -1621,14 +1620,14 @@ article {
     & > h1 {
       background-color: @color0;
       color: @boxHead;
-      padding: 0 8px 0 0;
-      font-size: 16px;
+      padding: 0 .5rem 0 0;
       font-weight: bold;
-      letter-spacing: 4px;
-      line-height: 0.94;
+      text-transform: uppercase;
+      // font-size: 16px;
+      // letter-spacing: 4px;
+      // line-height: 0.94;
       display: inline-block;
       margin: 0;
-      text-transform: uppercase;
     }
   }
 
@@ -1641,7 +1640,7 @@ article {
   &.viewphot {
     .product {
       border: 0;
-      padding: 10px;
+      // padding: 10px;
       position: relative;
 
       .productname {
@@ -1668,7 +1667,7 @@ article {
       .buttons {
         padding-top: 0;
         float: right;
-        max-width: 40%;
+        // max-width: 40%;
 
         form {
           &.basket {
@@ -3275,7 +3274,7 @@ table {
   }
 
   .addtobasket.btn.btn-red {
-    padding: .5rem 2rem;
+    padding: 1rem 2rem;
 
     span {
       text-transform: uppercase;
@@ -3442,9 +3441,9 @@ table {
     .price {
       max-width: 100%;
 
-      .box & {
-        margin-bottom: 20px;
-      }
+      // .box & {
+      //   margin-bottom: 20px;
+      // }
     }
 
     form.basket {
@@ -3458,7 +3457,7 @@ table {
       .buttons {
         max-width: 100%;
         text-align: right;
-        margin-top: 20px;
+        // margin-top: 20px;
       }
     }
   }
@@ -3781,9 +3780,9 @@ form input[type="number"].short,
 
 /* up 1.7.0 */
 
-#box_productfull .productimg .mainimg {
-  height: 400px;
-}
+// #box_productfull .productimg .mainimg {
+//   height: 400px;
+// }
 
 /* up 1.8.1 */
 
