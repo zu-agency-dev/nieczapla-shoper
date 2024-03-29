@@ -3,14 +3,14 @@
 {include file='body_head.tpl'}
     <div class="main row">
         <div class="innermain container">
-            <div class="f-row">
+            <div>
                 {if 0 < $boxes_left_side|@count}
                     <div class="leftcol f-grid-3">
                         {boxesLeft}
                     </div>
                 {/if}
 
-                <div class="centercol {if ($boxes_left_side|@count == 0) and ($boxes_right_side|@count == 0)}f-grid-12{elseif 0 != $boxes_left_side|@count and $boxes_right_side|@count != 0}f-grid-6{else}f-grid-9{/if}">
+                <div class="centercol">
                     {boxesTop}
 
                     {if 'search' == $list_type}

@@ -20,7 +20,7 @@
                     {if 'products' == $skin_settings->main->mode && count($products)}
                         <div class="box" id="box_mainproducts">
                             <div class="boxhead">
-                                <h1 class="category-name row"><img src="{baseDir}/libraries/images/1px.gif" alt="" class="px1">{translate key="Recommended products"}</h1>
+                                <!-- <h1 class="category-name row"><img src="{baseDir}/libraries/images/1px.gif" alt="" class="px1">{translate key="Recommended products"}</h1> -->
 
                                 <div class="sort-and-view">
                                     {if 1 == $skin_settings->productlist->allowviewchange}

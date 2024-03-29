@@ -169,7 +169,7 @@
   </header>
 
 
-  {if count($breadcrumbs->getBreadCrumbs()) > 0}
+  <!-- {if count($breadcrumbs->getBreadCrumbs()) > 0}
     <div class="breadcrumbs large tablet row">
       <div class="innerbreadcrumbs row container">
         <a href="{baseDir nonempty=1}" title="{translate key='Home page'}" rel="nofollow" class="breadcrumb-home left">
@@ -214,7 +214,7 @@
         </ul>
       </div>
     </div>
-  {/if}
+  {/if} -->
 
   {dynamic}
   {include file='flash_messages.tpl'}
