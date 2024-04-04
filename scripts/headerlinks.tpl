@@ -33,7 +33,7 @@
             {/if}
 
             {dynamic}
-                <!-- <ul class="menu-mobile rwd-show-medium rwd-hide-full"> -->
+                <!-- <ul class="menu-mobile rwd-show-medium rwd-hide-full">
                 <ul class="menu-mobile standard rwd-hide-full">
                     <li class="menu-mobile-li small-menu flex flex-4">
                         <a href="{baseDir nonempty=1}" title="{translate key='Menu'}" class="fa fa-align-justify">
@@ -55,7 +55,7 @@
                             <img src="{baseDir}/libraries/images/1px.gif" alt="" class="px1">
                         </a>
                     </li>
-                </ul>
+                </ul> -->
             {/dynamic}
         </nav>
     </div>

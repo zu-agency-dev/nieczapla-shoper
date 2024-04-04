@@ -367,29 +367,31 @@
       }
     }
   }
-  .availability,
-  .tax-additional-info {
-    .first {
-      font-size: 1em;
-      min-width: 25%;
-      float: left;
-      margin-right: 0.5em;
-    }
-    .second {
-      font-size: 1em;
-    }
-  }
 
-  .availability {
-    font-size: 1em;
+  // .availability,
+  // .tax-additional-info {
+  //   .first {
+  //     font-size: 1em;
+  //     min-width: 25%;
+  //     float: left;
+  //     margin-right: 0.5em;
+  //   }
+  //   .second {
+  //     font-size: 1em;
+  //   }
+  // }
 
-    .showShippingCost {
-      text-align: right;
-      color: @maincolor;
-      display: inline-block;
-      width: 100%;
-    }
-  }
+  // .availability {
+  //   font-size: 1em;
+
+  //   .showShippingCost {
+  //     text-align: right;
+  //     text-decoration: underline;
+  //     color: @maincolor;
+  //     display: inline-block;
+  //     width: 100%;
+  //   }
+  // }
 
   .basket {
     margin-top: 20px;
@@ -398,9 +400,10 @@
     .price-netto,
     .unit-price-container {
       .price-name {
-        font-size: 1em;
-        min-width: 25%;
-        margin-right: 0.5em;
+        display: none;
+        // font-size: 1em;
+        // min-width: 25%;
+        // margin-right: 0.5em;
       }
       del {
         font-size: 1.4em;
@@ -576,10 +579,10 @@
       }
 
       .stocks {
-        margin-bottom: 1em;
+        // margin-bottom: 1em;
 
         .f-row {
-          margin-bottom: 0.5em;
+          // margin-bottom: 0.5em;
 
           .option_checkbox {
             display: inline-block;
@@ -1400,24 +1403,24 @@
   }
 
   .shipping {
-    padding-top: 0.8em;
+    padding-top: 0.75rem;
 
     &:not(:first-child) {
       border-top: 1px solid @borderColor;
     }
 
     &-country {
-      margin: 0.5em 0 1em 0;
-      padding: 0.6em 0.6em 0.6em 1.4em;
+      margin: 0.5rem 0 1rem 0;
+      padding: 0.5rem 0.5rem 0.5rem 1.5rem;
     }
 
     &-label-container {
-      padding-left: 0.5em;
-      padding-bottom: 0.8em;
+      padding-left: 0.5rem;
+      padding-bottom: 0.75rem;
     }
 
     &-cost {
-      padding-right: 2em;
+      // padding-right: 2em;
       text-align: right;
     }
   }
@@ -1624,6 +1627,15 @@
       background-color: #e0e0e0;
       border-right: none;
     }
+  }
+}
+
+.product-attributes-column {
+  padding: .5rem;
+  border-bottom: 1px solid @maincolor;
+  font-size: 1rem;
+  &:last-of-type {
+    border: 0;
   }
 }
 
@@ -1900,5 +1912,31 @@
         height: 100%;
       }
     }
+  }
+}
+
+.addtobasket-container { 
+  display: flex; 
+  align-items: flex-start;
+  height: 4rem;
+}
+
+.addtobasket-input-quantity { 
+  text-align: center; 
+  height: 100%;
+}
+
+.product-main-box {
+  padding: 0 !important;
+}
+
+.boxhead {
+  h2 {
+    margin: 0;
+    font-family: "Oswald", sans-serif;
+    font-size: 1.5rem;
+    line-height: normal;
+    color: lightgrey;
+    text-transform: uppercase;
   }
 }

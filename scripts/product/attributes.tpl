@@ -7,17 +7,17 @@
             </h3>
         </div>
 
-        <div class="innerbox tab-content product-attributes zebra">
+        <div class="innerbox tab-content product-attributes">
             <table class="table">
                 <tbody>
                     {foreach from=$attrs item=attr}
                         {if 1 == $attr.type}
-                            <tr class="r--l-flex r--l-flex-wrap">
+                            <tr class="r--l-flex r--l-flex-wrap product-attributes-column">
                                 <td class="name r--l-box-5 r--l-md-box-10">{$attr.name|escape}</td>
                                 <td class="value r--l-box-5 r--l-md-box-10">{if 1 == $attr.value}{translate key="Yes"}{else}{translate key="No"}{/if}</td>
                             </tr>
                         {elseif strlen($attr.value)}
-                            <tr class="r--l-flex r--l-flex-wrap">
+                            <tr class="r--l-flex r--l-flex-wrap product-attributes-column">
                                 <td class="name r--l-box-5 r--l-md-box-10 r--l-xs-box-10">{$attr.name|escape}</td>
                                 <td class="value r--l-box-5 r--l-md-box-10 r--l-xs-box-10">{$attr.value|escape}</td>
                             </tr>
