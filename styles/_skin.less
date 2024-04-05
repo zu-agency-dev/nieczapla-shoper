@@ -868,15 +868,26 @@ header {
 
   .productname {
     font-family: "Oswald", sans-serif;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 600;
     text-transform: uppercase;
-    height: 2.35rem;
+    // height: 2.35rem;
     color: @color2;
 
     &:hover {
       color: @maincolor;
     }
+  }
+
+  .productdetails--p {
+    text-align: left;
+    text-wrap: nowrap;
+  }
+
+  .productdescription {
+    text-align: left;
+    padding-left: 0.5rem;
+    padding-bottom: 1rem;
   }
 
   &#box_menu {
@@ -1544,7 +1555,7 @@ article {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 0 10px;
+    // padding: 0 10px;
     text-align: left;
     float: left;
     max-width: 57%;
@@ -1555,8 +1566,8 @@ article {
 
     em {
       font-family: "Oswald", sans-serif;
-      font-size: 1rem;
-      font-weight: bold;
+      font-size: 1.25rem;
+      font-weight: 600;
       text-transform: uppercase;
       color: @color1;
       clear: both;
@@ -1649,14 +1660,13 @@ article {
       position: relative;
 
       .productname {
-        font-size: 16px;
-        height: 2.25em;
+        font-size: 1.25rem;
+        // height: 2.25em;
         text-align: left;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin-bottom: 20px;
-        color: @color2;
-        font-weight: normal;
+        // padding: 0.5rem;
+        // margin-bottom: 20px;
+        color: @maincolor;
+        // font-weight: normal;
 
         &:hover {
           color: @maincolor;
@@ -1714,8 +1724,12 @@ article {
 
       .prodname {
         .productname {
-          font-size: 24px;
+          font-size: 1.25rem;
           color: @color1;
+        }
+        .productdetails--p {
+          text-align: left;
+          text-wrap: nowrap;
         }
       }
 
@@ -2102,7 +2116,7 @@ article {
   }
   .basket {
     float: left;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
 
     .form-basket {
       float: right;
@@ -2120,15 +2134,15 @@ article {
           height: 4rem;
           border-top: 1px solid @maincolor;
           // & > .label {
-            // width: 100%;
-            // min-height: 1px;
-            // line-height: 1;
-            // font-size: 14px;
-            // letter-spacing: 0.3px;
+          // width: 100%;
+          // min-height: 1px;
+          // line-height: 1;
+          // font-size: 14px;
+          // letter-spacing: 0.3px;
 
-            // label {
-            //   line-height: 1.5;
-            // }
+          // label {
+          //   line-height: 1.5;
+          // }
           // }
 
           .stock-options {
@@ -2172,7 +2186,9 @@ article {
                 input,
                 input:hover,
                 input:checked {
-                  &::after { background-color: transparent; }
+                  &::after {
+                    background-color: transparent;
+                  }
                 }
               }
             }
@@ -2187,6 +2203,9 @@ article {
 
       .number-wrap {
         input {
+          border: none;
+          border-top: 2px solid @maincolor;
+          border-bottom: 2px solid @maincolor;
           width: 40px !important;
           min-width: 60px;
           height: 100%;
@@ -2460,9 +2479,9 @@ article {
   }
 
   .productname {
-    font-size: 24px;
+    font-size: 1.25rem;
     text-align: left;
-    margin-bottom: 20px;
+    // margin-bottom: 20px;
     color: @color1;
     font-weight: normal;
   }
@@ -3993,3 +4012,25 @@ form input[type="number"].short,
 }
 
 /* eof update 1.9.0 */
+
+.categories__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .categories__item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 4rem 0;
+
+    &--title {
+      font-family: "Oswald", sans-serif;
+      font-size: 3rem;
+      font-weight: 600;
+      line-height: 6rem;
+      text-transform: uppercase;
+    }
+  }
+}

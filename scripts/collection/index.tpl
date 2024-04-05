@@ -14,18 +14,17 @@
           class="centercol {if ($boxes_left_side|@count == 0) and ($boxes_right_side|@count == 0)}s-grid-12{elseif 0 != $boxes_left_side|@count and $boxes_right_side|@count != 0}s-grid-6{else}s-grid-9{/if}">
           {boxesTop}
 
-          {if $item->translation->description && $pages->current === 1}
-            <div class="categorydesc resetcss row">
-              {$item->translation->description}
-            </div>
-          {/if}
-
           {if $products->getTotalItemCount() > 0}
             <div class="box" id="box_mainproducts">
               <div class="boxhead">
                 <h1 class="category-name">
                   {$item->translation->name|escape}
                 </h1>
+                {if $item->translation->description && $pages->current === 1}
+                  <div class="categorydesc resetcss row">
+                    {$item->translation->description}
+                  </div>
+                {/if}
 
                 <div class="sort-and-view">
                   {if true == $sort_links}

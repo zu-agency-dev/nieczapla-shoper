@@ -7,22 +7,82 @@
     {/if}
 
     {* {if count($categories) > 0}
-      <div class="box" id="box_categories">
-        <div class="innerbox">
-          {foreach from=$categories item=category}
-            <h5>
-              <a href="#" title="Category" class="">
-                <span>a{$category->translation->name|escape}</span>
-              </a>
-            </h5>
-          {/foreach}
-        </div>
-      </div>
+                              <div class="box" id="box_categories">
+                                <div class="innerbox">
+
+
+
+
+
+
+
+
+
+
+
+
+      {foreach from=$categories item=category}
+                                                            <h5>
+                                                              <a href="#" title="Category" class="">
+                                                                <span>a{$category->translation->name|escape}</span>
+                                                              </a>
+                                                            </h5>
+
+
+
+
+
+
+
+
+
+
+
+
+      {/foreach}
+                                </div>
+                              </div>
+
+
+
+
+
+
+
+
+
+
+
+
     {else}
-      <div class="alert-info alert">
-        <p>{translate key="No categories found."}</p>
-        <p>{$categories}</p>
-      </div>
+                              <div class="alert-info alert">
+                                <p>
+
+
+
+
+
+
+
+
+
+
+
+      {translate key="No categories found."}</p>
+                                <p>{$categories}</p>
+                              </div>
+
+
+
+
+
+
+
+
+
+
+
+
     {/if} *}
 
     {if 'full' == $view || $view == 'desc'}
@@ -507,32 +567,8 @@
                     <a href="{route function=$productRoute key=$product->product->product_id productName=$product->translation->name productId=$product->product->product_id}"
                       class="productname"
                       title="{$product->translation->name|escape}">{$product->translation->name|escape}</a>
-                    
-                    <!-- {if $product->product->producer_id}
-                      <div class="f-row manufacturer">
-                        <em>{translate key="Vendor"}:</em>
-                        {if $product->producer->manufacturer->web}
-                          <a class="brand" target="_blank" rel="noopener" href="{$product->producer->manufacturer->web}"
-                            title="{$product->producer->manufacturer->name|escape}">
-                          {else}
-                            <a class="brand"
-                              href="{route function='producer' key=$product->producer->getIdentifier() producerName=$product->producer->manufacturer->name producerId=$product->producer->getIdentifier() page=1 sort=1 view=$view}"
-                              title="{$product->producer->manufacturer->name|escape}">
-                            {/if}
-                            {$product->producer->manufacturer->name|escape}
-                          </a>
-                      </div>
-                    {/if} -->
-                    {if count($attrs)}
-                      {foreach from=$attrs item=attr}
-                        {if 1 == $attr.type}
-                          {if 1 == $attr.value}
-                            <p>{translate key="Yes"}{else}{translate key="No"}</p>
-                          {/if}
-                        {/if}
-                      {/foreach}
-                    {/if}
-
+                    <p class="productdetails--p">
+                      {$product->attributes[0].value|escape}/{$product->attributes[1].value|escape}</p>
                   </div>
                   <div class="product__basket">
                     <div class="price f-row">

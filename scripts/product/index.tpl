@@ -479,15 +479,15 @@
                           {/if}
 
                           {if count($attrs)}
-                            <div>
+                            <div class="product-details__table">
                               <p>{$attrs[7].name|escape}</p>
                               <p>{$attrs[7].value|escape}</p>
                             </div>
-                            <div>
+                            <div class="product-details__table">
                               <p>{$attrs[6].name|escape}</p>
                               <p>{$attrs[6].value|escape}</p>
                             </div>
-                            <div>
+                            <div class="product-details__table">
                               <p>{$attrs[5].name|escape}</p>
                               <p>{$attrs[5].value|escape}</p>
                             </div>
@@ -589,7 +589,8 @@
 
                             <fieldset
                               class="addtobasket-container{if false == $enablebasket || 0 == (int) $product->defaultStock->availability->availability->can_buy} none{/if}">
-                              <button type="button" class="btn btn-quantity">-</button>
+                              <button type="button" id="minusQuantity" class="btn btn-quantity"><span
+                                  class="fa-sharp fa-solid fa-minus"></span></button>
                               <div class="quantity_wrap">
                                 <span class="quantity_name">{translate key="quantity"}</span>
                                 <span class="number-wrap">
@@ -604,6 +605,15 @@
 
                                 {if $product->isBundle()}
                                   <input type="hidden" value="{foreach from=$product->bundle->items item=item name=bundles}{$item->getIdentifier()}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -659,7 +669,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
                                     {/if}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -690,7 +718,8 @@
                                   {/foreach}" name="bundle_stocks">
                                 {/if}
                               </div>
-                              <button type="button" class="btn btn-quantity">+</button>
+                              <button type="button" id="plusQuantity" class="btn btn-quantity"><span
+                                  class="fa-sharp fa-solid fa-plus"></span></button>
                               <div class="button_wrap">
                                 <button type="submit" class="addtobasket btn btn-red">
                                   <img src="{baseDir}/libraries/images/1px.gif" alt="{translate key='Add to cart'}"
@@ -759,14 +788,14 @@
                           {/if}
 
                           {if $requiredField}
-                            <div>
+                            <div class="none">
                               <span><em class="color">*</em> - {translate key="Field mandatory"}</span>
                             </div>
                           {/if}
                         </div>
 
                         {if 1 == $skin_settings->productdetails->score || 1 == $skin_settings->productdetails->producer || 1 == $skin_settings->productdetails->code ||
-                                                                                          1 == $skin_settings->productdetails->storage || 1 == $skin_settings->productdetails->recommend || ($can_comment && 1 == $skin_settings->productdetails->comments) }
+                                                                                                            1 == $skin_settings->productdetails->storage || 1 == $skin_settings->productdetails->recommend || ($can_comment && 1 == $skin_settings->productdetails->comments) }
 
                         <div class="productdetails-more-details clearfix">
                           {if 1 == $skin_settings->productdetails->score || 1 == $skin_settings->productdetails->producer || 1 == $skin_settings->productdetails->code}
