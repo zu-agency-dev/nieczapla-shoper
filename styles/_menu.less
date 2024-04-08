@@ -18,6 +18,9 @@
         float: left;
         padding: 0;
         line-height: 25px;
+        &:is([id*="hcategory"]) {
+          display: none;
+        }
 
         &.current {
           a {
@@ -44,24 +47,23 @@
         ul {
           display: none;
 
-          >li:first-child {
+          > li:first-child {
             margin-top: 0.5em;
           }
 
-          >li:last-child {
+          > li:last-child {
             margin-bottom: 0.5em;
           }
 
           li {
-            font-size: 14px;
+            font-size: .875rem;
 
             &.parent {
               a {
                 &:hover {
-
                   &::before,
                   &::after {
-                    content: '';
+                    content: "";
                     width: 4em;
                     height: 3em;
                     display: block;
@@ -76,7 +78,6 @@
 
                   &::after {
                     bottom: -3em;
-
                   }
                 }
               }
@@ -101,8 +102,8 @@
     }
 
     .parent:hover {
-      >div {
-        >ul {
+      > div {
+        > ul {
           display: inline-block;
           position: absolute;
           z-index: 1;
@@ -129,8 +130,8 @@
             float: none;
 
             &.parent:hover {
-              >div {
-                >ul {
+              > div {
+                > ul {
                   right: -100.8%;
                   top: -1px;
                   width: 100%;
@@ -159,14 +160,12 @@
                 }
               }
             }
-
-            ;
           }
         }
       }
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         height: 5em;
@@ -270,7 +269,7 @@
 }
 
 .current_parent {
-  &>h3>a {
+  & > h3 > a {
     color: @maincolor;
   }
 }

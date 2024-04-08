@@ -3,21 +3,6 @@
   {include file='body_head.tpl'}
   <div class="main row">
     <div class="innermain container">
-      <!-- TODO: Categories -->
-      <div class="categories__wrapper">
-        <a class="categories__item" href="#">
-          <span class="categories__item--title">Przelewy</span>
-          <span class="categories__item--description">Drip | Aeropress | Frenchpress</span>
-        </a>
-        <a class="categories__item" href="#">
-          <span class="categories__item--title">Espresso</span>
-          <span class="categories__item--description">Kolba | Automat | Kawiarka</span>
-        </a>
-        <a class="categories__item" href="#">
-          <span class="categories__item--title">Akcesoria</span>
-          <span class="categories__item--description">Filtry | Młynki | Merch</span>
-        </a>
-      </div>
       <div class="s-row">
         {if 0 < $boxes_left_side|@count}
           <div class="leftcol large s-grid-3">

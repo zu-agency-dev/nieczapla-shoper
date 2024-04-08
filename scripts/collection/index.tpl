@@ -17,19 +17,19 @@
           {if $products->getTotalItemCount() > 0}
             <div class="box" id="box_mainproducts">
               <div class="boxhead">
-                <h1 class="category-name">
+                {* <h1 class="category-name">
                   {$item->translation->name|escape}
-                </h1>
-                {if $item->translation->description && $pages->current === 1}
+                </h1> *}
+                {* {if $item->translation->description && $pages->current === 1}
                   <div class="categorydesc resetcss row">
                     {$item->translation->description}
                   </div>
-                {/if}
+                {/if} *}
 
                 <div class="sort-and-view">
                   {if true == $sort_links}
                     <div class="sortlinks">
-                      {feature name="products_order"}
+                      {* {feature name="products_order"}
                       {if count($sort_list) > 0}
                         <select class="gotourl">
                           {foreach from=$sort_list item=sort_type}
@@ -38,7 +38,7 @@
                           {/foreach}
                         </select>
                       {/if}
-                      {/feature}
+                      {/feature} *}
 
                       {feature name="products_order" disabled=1}
                       <div class="products-sort-container">

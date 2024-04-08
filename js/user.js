@@ -15,3 +15,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
     });
   }
 });
+
+window.addEventListener("DOMContentLoaded", () => {
+  const currentPath = window.location.href;
+  const links = document.querySelectorAll(".categories__item");
+
+  if (links) {
+    links.forEach((link) => {
+      if (link.href == currentPath) {
+        link.classList.add("active");
+      }
+    });
+  }
+});

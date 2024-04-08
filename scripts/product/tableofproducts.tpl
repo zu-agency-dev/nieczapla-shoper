@@ -6,84 +6,21 @@
       {assign var="columnCounter" value=$columnCounter-1}
     {/if}
 
-    {* {if count($categories) > 0}
-                              <div class="box" id="box_categories">
-                                <div class="innerbox">
-
-
-
-
-
-
-
-
-
-
-
-
-      {foreach from=$categories item=category}
-                                                            <h5>
-                                                              <a href="#" title="Category" class="">
-                                                                <span>a{$category->translation->name|escape}</span>
-                                                              </a>
-                                                            </h5>
-
-
-
-
-
-
-
-
-
-
-
-
-      {/foreach}
-                                </div>
-                              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    {else}
-                              <div class="alert-info alert">
-                                <p>
-
-
-
-
-
-
-
-
-
-
-
-      {translate key="No categories found."}</p>
-                                <p>{$categories}</p>
-                              </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    {/if} *}
+    <!-- TODO: Categories -->
+    <div class="categories__wrapper">
+      {if count($headerlinks)}
+        {foreach from=$headerlinks item=link}
+          {if $link->getHref() || $link->isActiveCategory()}
+            <a {if $link->isCategory()}id="hcategory_{$link->getCategoryId()|escape}" {/if}
+              {if $link->isPopup()}target="_blank" rel="noopener" {/if} href="{$link->getHref($view)|escape}"
+              title="{$link->getTitle()|escape}" id="headlink{$link->getIdentifier()}" class="categories__item">
+              <span class="categories__item--title">{$link->getTitle()|escape}</span>
+              <span class="categories__item--description">Category description...</span>
+            </a>
+          {/if}
+        {/foreach}
+      {/if}
+    </div>
 
     {if 'full' == $view || $view == 'desc'}
       <div class="products view{$view}" {if $price_mode == '2'}data-netto="true" {/if}>
@@ -535,7 +472,7 @@
         {/foreach}
       </div>
     {elseif 'phot' == $view}
-      <div class="products view{$view} zu-grid" {if $price_mode == '2'}data-netto="true" {/if}>
+      <div class="products view{$view} zu-grid zu-grid-gap-2" {if $price_mode == '2'}data-netto="true" {/if}>
         {foreach from=$products item=product name=prodlist}
           <div data-product-id="{$product->product->product_id}"
             data-category="{$product->defaultCategory->translation->name|escape}"

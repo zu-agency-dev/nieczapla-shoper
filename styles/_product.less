@@ -33,7 +33,7 @@
       overflow: visible;
 
       .productname {
-        line-height: 16px;
+        line-height: 1rem;
         font-size: 1.4em;
         display: inline-block;
         font-weight: 600;
@@ -362,7 +362,6 @@
       img {
         width: 100%;
         max-height: 100%;
-        aspect-ratio: 1;
         object-fit: cover;
       }
     }
@@ -394,7 +393,7 @@
   // }
 
   .basket {
-    margin-top: 20px;
+    margin-top: 1.25rem;
 
     .price,
     .price-netto,
@@ -483,7 +482,7 @@
         .button_wrap {
           width: 100%;
           button {
-            min-height: 40px;
+            min-height: 2.5rem;
             float: right;
           }
         }
@@ -499,7 +498,7 @@
         .availability-notifier-unsubscribe-btn {
           margin-top: 0;
           width: 100%;
-          min-height: 40px;
+          min-height: 2.5rem;
         }
 
         .loyalty_points {
@@ -531,8 +530,8 @@
                   border-style: solid;
                   border-color: transparent transparent @maincolor transparent;
                   position: absolute;
-                  top: -16px;
-                  right: 4px;
+                  top: -1rem;
+                  right: .25rem;
                 }
 
                 span.title {
@@ -548,7 +547,7 @@
 
       .tooltip {
         display: none;
-        line-height: 14px;
+        line-height: .875rem;
         font-size: 0.9em;
         color: @fontLightColor;
       }
@@ -560,11 +559,11 @@
         padding: 6px 10px;
         color: @colorWhite;
         font-size: 0.9em;
-        line-height: 20px;
+        line-height: 1.25rem;
         background-color: @tooltipBgColor;
         display: flex;
         align-items: center;
-        border-radius: 4px;
+        border-radius: .25rem;
         transform: translateY(calc(-100% - 60px));
         z-index: 999;
         &:before {
@@ -574,8 +573,8 @@
           left: 22px;
           width: 0px;
           height: 0px;
-          border-left: 8px solid transparent;
-          border-right: 8px solid transparent;
+          border-left: .25rem solid transparent;
+          border-right: .25rem solid transparent;
           border-top: 9px solid @tooltipBgColor;
         }
       }
@@ -607,8 +606,9 @@
         }
 
         label {
-          font-size: 1em;
-          line-height: 40px;
+          font-size: 1rem;
+          line-height: 2.5rem;
+          padding-left: 2rem;
         }
 
         &.loading {
@@ -800,8 +800,8 @@
       content: "";
       display: block;
       position: absolute;
-      top: -14px;
-      right: 4px;
+      top: -.875rem;
+      right: .25rem;
 
       border-width: 7px;
       border-style: solid;
@@ -814,7 +814,7 @@
 
       &::after {
         right: auto;
-        left: 4px;
+        left: .25rem;
       }
     }
   }
@@ -830,12 +830,12 @@
   }
 
   ul {
-    padding-left: 40px;
+    padding-left: 2.5rem;
     list-style-type: disc;
   }
 
   ol {
-    padding-left: 40px;
+    padding-left: 2.5rem;
     list-style-position: outside;
   }
 
@@ -937,7 +937,7 @@
           background-color: white;
 
           &.active {
-            // padding: 0 14px 0 10px;
+            // padding: 0 .875rem 0 10px;
             // border-top: 1px solid @borderColor;
             // border-left: 1px solid @borderColor;
             // border-right: 1px solid @borderColor;
@@ -1073,8 +1073,8 @@
 
 .ajaxbasket {
   background-color: @colorWhite;
-  border-top: 8px solid @maincolor;
-  border-bottom: 8px solid @maincolor;
+  border-top: .25rem solid @maincolor;
+  border-bottom: .25rem solid @maincolor;
   padding: 1em 2em 2em;
 
   h3 {
@@ -1110,8 +1110,8 @@
 }
 
 .option_color a {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   display: inline-block;
   border: 1px solid @colorWhite;
   box-shadow: 0 0 0px 1px @borderColor;
@@ -1830,7 +1830,8 @@
   margin-top: 1rem;
 }
 
-@media screen and (max-width: 767px) {
+//767
+@media screen and (max-width: @breakPointSm) {
   .products.viewphot.products_extended .product.product_view-extended {
     .product__basket {
       flex: initial;
@@ -1855,7 +1856,12 @@
   background-color: @fontLightColor;
   border-top: 1px solid @fontBasicColor;
   .product__details--text-wrapper {
+    background-color: #FFF;
     flex: 1;
+    padding: 1rem 1rem 0;
+    .prodname {
+      margin-bottom: 1rem;
+    }
   }
   .buttons {
     flex: 0;
@@ -1951,7 +1957,19 @@
 .product-details__table {
   display: flex;
   justify-content: space-between;
-  padding-top: 1.5rem;
-  padding-bottom: .5rem;
+  padding: 1.5rem 2rem;
   border-top: 1px solid @maincolor;
+}
+
+@media (max-width: @breakPointMd) {
+  .product-details__table {
+    flex-direction: column;
+  }
+}
+
+.product-details__grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }

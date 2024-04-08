@@ -33,9 +33,10 @@
 
               <div class="innerbox product-main-box" data-loading="{translate key="File upload in progress"}...">
                 <div class="maininfo row">
-                  <div class="f-row">
+                  {* <div class="f-row"> *}
+                  <div class="zu-grid">
                     {include file='product/gallery.tpl'}
-                    <div class="f-grid-6">
+                    <div class="f-grid-6 product-details__grid">
                       <div class="availability row">
                         {if $product->defaultStock && ( 1 == $skin_settings->productdetails->availability || ( 1 == $skin_settings->productdetails->time && $product->canBuyStock() ) || ( 1 == $skin_settings->productdetails->shippingcost && $product->canBuyStock() && $enablebasket === true )) }
                           {if $product->defaultStock->stock->code}
@@ -608,110 +609,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     {if !$smarty.foreach.bundles.last},
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     {/if}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -795,7 +696,7 @@
                         </div>
 
                         {if 1 == $skin_settings->productdetails->score || 1 == $skin_settings->productdetails->producer || 1 == $skin_settings->productdetails->code ||
-                                                                                                            1 == $skin_settings->productdetails->storage || 1 == $skin_settings->productdetails->recommend || ($can_comment && 1 == $skin_settings->productdetails->comments) }
+                                                                                                                    1 == $skin_settings->productdetails->storage || 1 == $skin_settings->productdetails->recommend || ($can_comment && 1 == $skin_settings->productdetails->comments) }
 
                         <div class="productdetails-more-details clearfix">
                           {if 1 == $skin_settings->productdetails->score || 1 == $skin_settings->productdetails->producer || 1 == $skin_settings->productdetails->code}

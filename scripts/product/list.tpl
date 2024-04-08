@@ -19,7 +19,7 @@
 
           {if $products->getTotalItemCount() > 0}
             <div class="box" id="box_mainproducts">
-              <div class="boxhead">
+              {* <div class="boxhead">
                 <div class="category__wrapper">
                   <h1 class="category-name">
                     {if $body_class|strstr:"product_new" && $category_name|escape == ''}
@@ -153,7 +153,7 @@
                     </div>
                   {/if}
                 </div>
-              </div>
+              </div> *}
 
               <div class="innerbox">
                 {include file='product/tableofproducts.tpl'}

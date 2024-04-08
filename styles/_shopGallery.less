@@ -94,7 +94,7 @@
                         left: 0;
                         top: 50%;
                         width: 15px;
-                        margin-top: -8px;
+                        margin-top: -.25rem;
                     }
                 }
 
@@ -112,7 +112,7 @@
                         right: 0;
                         top: 50%;
                         width: 15px;
-                        margin-top: -8px;
+                        margin-top: -.25rem;
                     }
                 }
             }
@@ -353,7 +353,7 @@
     ul {
         &.with-nav {
             margin-left: 12px;
-            margin-right: 8px;
+            margin-right: .25rem;
         }
     }
 
@@ -368,8 +368,8 @@
 
     .smallgallery-left, .smallgallery-right {
         position: absolute;
-        border-top: 8px solid transparent;
-        border-bottom: 8px solid transparent;
+        border-top: .25rem solid transparent;
+        border-bottom: .25rem solid transparent;
         cursor: pointer;
         top: 50%;
         margin-top: -10px;
@@ -377,12 +377,12 @@
 
     .smallgallery-left {
         left: 0px;
-        border-right: 8px solid rgb(0, 0, 0);
+        border-right: .25rem solid rgb(0, 0, 0);
     }
 
     .smallgallery-right {
         right: 0px;
-        border-left: 8px solid rgb(0, 0, 0);
+        border-left: .25rem solid rgb(0, 0, 0);
     }
 }
 
@@ -397,7 +397,8 @@
     }
 }
 
-@media screen and (max-width: 767px) {
+//767
+@media screen and (max-width: @breakPointSm) {
     .shop-gallery {
         position: fixed;
         top: 0;

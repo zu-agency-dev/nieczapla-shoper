@@ -313,7 +313,7 @@
                     width: 19em;
                     padding-left: 1em;
                     padding-right: 2em;
-                    margin-bottom: 4px;
+                    margin-bottom: .25rem;
                 }
             }
             &.input_info {
@@ -884,7 +884,7 @@
     height: 34px !important;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: @breakPointLg) {
     #box_basketstep2 {
         .basket-step-border {
             > .innerbox {
@@ -916,7 +916,8 @@
     }
 }
 
-@media screen and (max-width: 767px) {
+//767
+@media screen and (max-width: @breakPointSm) {
     .s-grid-6, .s-grid-9, .s-grid-12 {
         #box_basketstep2 {
             .shaded_inputwrap {

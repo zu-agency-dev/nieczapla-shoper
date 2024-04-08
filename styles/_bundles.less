@@ -101,7 +101,7 @@
 	.stock-control {
 		flex: 1 1 100%;
 		border: 1px solid @bundleSelectBorderColor;
-		margin-bottom: 4px;
+		margin-bottom: .25rem;
 
 		.stock-label {
 			border: none;
@@ -260,7 +260,8 @@
 	margin-top: 0.5em;
 }
 
-@media screen and (max-width: 767px) {
+//767
+@media screen and (max-width: @breakPointSm) {
 	#box_bundle {
 		.product {
 			[data-gallery="true"] {
