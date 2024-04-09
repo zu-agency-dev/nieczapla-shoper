@@ -23,13 +23,13 @@
           {if 1 == $product->translation->active || $adminPreview == true}
             <div class="box row" id="box_productfull"
               data-category="{$product->defaultCategory->translation->name|escape}">
-              <!--  
+              {*
               <div class="boxhead">
                 <h1 class="name{if $visibility.gallery_and_name_gray} product_inactive{/if}" itemprop="name">
                 {$product->translation->name|escape}
                 </h1>
               </div> 
-              -->
+              *}
 
               <div class="innerbox product-main-box" data-loading="{translate key="File upload in progress"}...">
                 <div class="maininfo row">
@@ -503,7 +503,7 @@
                                 {foreach from=$options item=option}
                                   {if (0 == $option.stock && count($option.values) > 0) || 1 == $option.stock || $option.type == 'file' || $option.type == 'text' || $option.type == 'checkbox'}
                                     <div class="f-row">
-                                      <div class="label f-grid-6">
+                                      <div class="label">
                                         <label for="option_{$option.id|escape}" class="label">
                                           {if 1 == $option.required}
                                             {if $product->canBuyStock()}
@@ -514,7 +514,7 @@
                                           {$option.name|escape}:
                                         </label>
                                       </div>
-                                      <div class="stock-options f-grid-6">
+                                      <div class="stock-options">
                                         {if  $option.type == 'file'}
                                           <div
                                             class="option_{$option.type|escape}{if 1 == $option.stock} option_truestock{/if}{if 1 == $option.required} option_required{/if}">
@@ -544,14 +544,16 @@
                                             class="option_{$option.type|escape}{if 1 == $option.stock} option_truestock{/if}{if 1 == $option.required} option_required{/if}">
                                             {foreach from=$option.values item=value}
                                               <span class="radio-wrap">
-                                                <input type="radio" id="option_{$option.id|escape}_{$value.id|escape}"
+                                                <input class="radio-wrap__radio" type="radio"
+                                                  id="option_{$option.id|escape}_{$value.id|escape}"
                                                   name="option_{$option.id|escape}" value="{$value.id|escape}"
                                                   {if 1 == $option.stock}{productOptionValueStocksUnavailable product=$product->getIdentifier() optionValue=$value.id}data-unavailable{/productOptionValueStocksUnavailable}{/if} />
-                                                <label for="option_{$option.id|escape}_{$value.id|escape}"></label>
+                                                <label for="option_{$option.id|escape}_{$value.id|escape}"
+                                                  class="radio-wrap__label">{$value.name|escape}</label>
                                               </span>
-                                              <label
-                                                for="option_{$option.id|escape}_{$value.id|escape}">{$value.name|escape}</label>
-                                              <br />
+                                              {* <label for="option_{$option.id|escape}_{$value.id|escape}"
+                                                class="radio-wrap__label">{$value.name|escape}</label> *}
+                                              {* <br /> *}
                                             {/foreach}
                                           </div>
                                         {elseif  $option.type == 'color'}
@@ -609,10 +611,31 @@
 
 
 
+
+
+
+
+
+
+
                                     {if !$smarty.foreach.bundles.last},
 
 
+
+
+
+
+
+
+
                                     {/if}
+
+
+
+
+
+
+
 
 
 
@@ -696,7 +719,7 @@
                         </div>
 
                         {if 1 == $skin_settings->productdetails->score || 1 == $skin_settings->productdetails->producer || 1 == $skin_settings->productdetails->code ||
-                                                                                                                    1 == $skin_settings->productdetails->storage || 1 == $skin_settings->productdetails->recommend || ($can_comment && 1 == $skin_settings->productdetails->comments) }
+                                                                                                                                  1 == $skin_settings->productdetails->storage || 1 == $skin_settings->productdetails->recommend || ($can_comment && 1 == $skin_settings->productdetails->comments) }
 
                         <div class="productdetails-more-details clearfix">
                           {if 1 == $skin_settings->productdetails->score || 1 == $skin_settings->productdetails->producer || 1 == $skin_settings->productdetails->code}

@@ -1415,7 +1415,7 @@
       width: 642px;
     }
     .s-grid-12 {
-      // width: 700px;
+      width: 700px;
       width: 100%;
 
       .s-grid-3 {
@@ -2229,8 +2229,16 @@
 
         .radio-wrap {
           + label {
+            display: flex;
+            align-items: center;
             width: auto;
-            display: inline-block;
+            height: 100%;
+            padding: 0 1rem;
+            // display: inline-block;
+            .active {
+              background-color: @maincolor;
+              color: #FFF;
+            }
           }
         }
 

@@ -6,7 +6,7 @@
       {assign var="columnCounter" value=$columnCounter-1}
     {/if}
 
-    <!-- TODO: Categories -->
+    <!-- TODO: Categories description -->
     <div class="categories__wrapper">
       {if count($headerlinks)}
         {foreach from=$headerlinks item=link}
