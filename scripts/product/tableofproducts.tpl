@@ -491,6 +491,20 @@
                       {/if} 
                     {/foreach} />
 
+                  <div class="img-overlay">
+                    <div class="overlay-notes">
+                      <p>{$product->attributes[7].value|escape}</p>
+                    </div>
+                    <div class="overlay-variation">
+                      <p>Odmiana:</p>
+                      <p>{$product->attributes[6].value|escape}</p>
+                    </div>
+                    <div>
+                      <p class="overlay-treatment">Obróbka:</p>
+                      <p>{$product->attributes[5].value|escape}</p>
+                    </div>
+                  </div>
+
                   <noscript>
                     <img src="{imageUrl type='productGfx' width=$skin_settings->img->medium height=$skin_settings->img->medium
                                     image=$product->getPromotingGfxName() overlay=1}"

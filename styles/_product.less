@@ -1780,6 +1780,35 @@
   }
 }
 
+.img-overlay {
+  position:absolute;
+  top: 100%;
+  transition: all .25s ease-in-out;
+  // animate top: 0% -> 100% to show overlay
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  background-color: @maincolor;
+  aspect-ratio: 1;
+  p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    color: @colorWhite;
+    text-transform: uppercase;
+  }
+}
+
+.product-main-wrap:hover {
+  .img-overlay {
+    top: 0%;
+  }
+}
+
 .products.viewphot.products_extended .product.product_view-extended {
   height: auto;
 

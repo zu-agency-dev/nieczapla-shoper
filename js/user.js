@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 window.addEventListener("DOMContentLoaded", () => {
   const currentPath = window.location.href;
-  const links = document.querySelectorAll(".categories__item");
+  const links = document.querySelectorAll(".categories__item[id*='hcategory']");
 
   if (links) {
     links.forEach((link) => {
@@ -26,7 +26,10 @@ window.addEventListener("DOMContentLoaded", () => {
         link.classList.add("active");
       }
     });
-  }
+    if (currentPath == (window.location.origin + '/')) {
+      links[0].classList.add('active');
+    }
+  };
 });
 
 // window.addEventListener("DOMContentLoaded", () => {
@@ -47,3 +50,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
 //   console.log(radioWrapLabel);
 // });
+
+window.addEventListener("DOMContentLoaded", () => {
+const notes = document.querySelectorAll('.overlay-notes > p');
+notes.forEach((note) => {
+  const oldString = note.innerText;
+  const newString = oldString.replaceAll(',', '\n');
+  note.innerText = newString;
+});
+});

@@ -2625,7 +2625,7 @@ article {
 }
 
 // 16. footer
-
+// TODO: Footer - Figma
 .footer {
   background: @maincolor;
   margin-top: 0;
@@ -2663,18 +2663,18 @@ article {
           font-size: 1rem;
           margin-top: 0;
           background-color: transparent;
-          color: @footerHead;
+          color: @colorWhite;
           text-transform: uppercase;
         }
 
         a {
           font-size: 13px;
           line-height: 30px;
-          color: @footerLink;
+          color: @colorWhite;
           text-decoration: underline;
 
           &:hover {
-            color: @maincolor;
+            color: darken(@colorWhite, 10%);
           }
         }
       }
@@ -2685,6 +2685,71 @@ article {
     color: @footerBg;
     padding: 30px 0;
     .box-sizing();
+  }
+}
+
+.footer__full {
+  display: flex;
+  width: 100%;
+  
+  &--left {
+    display: flex;
+    flex: 1;
+    
+    img {
+      max-width: 12rem;
+      padding-right: 3rem;
+    }
+    &-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .footer__company-details {
+        font-family: "Oswald", sans-serif;
+        font-weight: 600;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        text-transform: uppercase;
+        a {
+          color: @colorWhite;
+          text-decoration: underline;
+        }
+      }
+      .footer__box {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: darken(@maincolor, 10%);
+        &--line-wrapper {
+          display: flex;
+          justify-content: space-between;
+          p:last-child { font-weight: bold; }
+        }
+      }
+    }
+  }
+  &--right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex: 1;
+
+    .footer__menu {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+
+      li > a { color: @colorWhite; }
+      &.is-mainmenu > li > a {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+    }
+    .footer__meta {
+      text-align: right;
+    }
   }
 }
 
@@ -3264,16 +3329,18 @@ table {
 
 .up {
   .btn {
-    background-color: transparent;
+    // background-color: transparent;
+    background-color: @maincolor;
     width: 2.5rem;
     height: 2.5rem;
     line-height: 2.5rem;
     padding: 0;
     text-align: center;
-    border-color: @color1;
+    // border-color: @color1;
 
     &:before {
-      color: @color1;
+      // color: @color1;
+      color: @colorWhite;
     }
   }
 }
@@ -4113,4 +4180,8 @@ form input[type="number"].short,
   .categories__wrapper {
     flex-direction: column;
   }
+}
+
+.color-white {
+  color: @colorWhite !important;
 }
