@@ -34,7 +34,7 @@
               <div class="innerbox product-main-box" data-loading="{translate key="File upload in progress"}...">
                 <div class="maininfo row">
                   {* <div class="f-row"> *}
-                  <div class="zu-grid">
+                  <div class="zu-grid padding-top-medium">
                     {include file='product/gallery.tpl'}
                     <div class="f-grid-6 product-details__grid">
                       <div class="availability row">
@@ -69,7 +69,7 @@
                             <div class="price-delivery__wrapper">
                               {if $loyalty_exchange}
                                 <div class="price">
-                                  <span class="price-name">{translate key="Price"}:</span>
+                                  {* <span class="price-name">{translate key="Price"}:</span> *}
                                   <em>
                                     {$product->defaultStock->loyaltyPointsPrice(true)|escape}
 
@@ -84,8 +84,8 @@
                                     <div class="price__container">
                                       {if $price_mode == '1'}
                                         <span class="price-name">{translate key="Gross price"}:</span>
-                                      {else}
-                                        <span class="price-name">{translate key="Price"}:</span>
+                                      {* {else}
+                                        <span class="price-name">{translate key="Price"}:</span> *}
                                       {/if}
 
                                       {if $product->specialOffer}
@@ -119,7 +119,7 @@
                                         {/if}
 
                                         <p class="price__regular">
-                                          {translate key="Regular price"}:
+                                          {* {translate key="Regular price"}: *}
                                           <del class="price__inactive">{currency value=$product->defaultStock->getPrice()}</del>
                                         </p>
 
@@ -481,16 +481,16 @@
 
                           {if count($attrs)}
                             <div class="product-details__table">
-                              <p>{$attrs[7].name|escape}</p>
-                              <p>{$attrs[7].value|escape}</p>
+                              <p>{$attrs[2].name|escape}</p>
+                              <p>{$attrs[2].value|escape}</p>
                             </div>
                             <div class="product-details__table">
-                              <p>{$attrs[6].name|escape}</p>
-                              <p>{$attrs[6].value|escape}</p>
+                              <p>{$attrs[3].name|escape}</p>
+                              <p>{$attrs[3].value|escape}</p>
                             </div>
                             <div class="product-details__table">
-                              <p>{$attrs[5].name|escape}</p>
-                              <p>{$attrs[5].value|escape}</p>
+                              <p>{$attrs[4].name|escape}</p>
+                              <p>{$attrs[4].value|escape}</p>
                             </div>
                           {/if}
                           <form
@@ -618,6 +618,10 @@
 
 
 
+
+
+
+
                                     {if !$smarty.foreach.bundles.last},
 
 
@@ -628,7 +632,15 @@
 
 
 
+
+
+
+
                                     {/if}
+
+
+
+
 
 
 
@@ -719,7 +731,7 @@
                         </div>
 
                         {if 1 == $skin_settings->productdetails->score || 1 == $skin_settings->productdetails->producer || 1 == $skin_settings->productdetails->code ||
-                                                                                                                                  1 == $skin_settings->productdetails->storage || 1 == $skin_settings->productdetails->recommend || ($can_comment && 1 == $skin_settings->productdetails->comments) }
+                                                                                                                                          1 == $skin_settings->productdetails->storage || 1 == $skin_settings->productdetails->recommend || ($can_comment && 1 == $skin_settings->productdetails->comments) }
 
                         <div class="productdetails-more-details clearfix">
                           {if 1 == $skin_settings->productdetails->score || 1 == $skin_settings->productdetails->producer || 1 == $skin_settings->productdetails->code}

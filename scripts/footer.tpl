@@ -2,13 +2,13 @@
       <div class="innerfooter container row">
         <ul class="overall{if 1 == count($footergroups)} singlecol{/if}">
           {foreach from=$footergroups item=group name=groups}
-            <li class="overall flex flex-{$footergroups|count}" id="footgroup{$group->getIdentifier()}">
+            <li class="overall-li" id="footgroup{$group->getIdentifier()}">
               <ul>
-                <li class="head hidden color-white">{$group->group->name|escape}</li>
+                <li class="head hidden">{$group->group->name|escape}</li>
                 {foreach from=$group->links item=link name=links}
                   {if $link->getHref()}
                     <li>
-                      <a class="color-white" href="{$link->getHref()|escape}" {if $link->isPopup()}target="_blank"
+                      <a href="{$link->getHref()|escape}" {if $link->isPopup()}target="_blank"
                         rel="noopener" {/if} title="{$link->getTitle()|escape}" id="footlink{$link->getIdentifier()}">
                         <img alt="" src="{baseDir}/libraries/images/1px.gif">
                         {$link->getTitle()|escape}

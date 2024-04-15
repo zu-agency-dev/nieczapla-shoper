@@ -493,15 +493,16 @@
 
                   <div class="img-overlay">
                     <div class="overlay-notes">
-                      <p>{$product->attributes[7].value|escape}</p>
+                      <p>{$product->attributes[2].key|escape}</p>
+                      <p>{$product->attributes[2].value|escape}</p>
                     </div>
                     <div class="overlay-variation">
-                      <p>Odmiana:</p>
-                      <p>{$product->attributes[6].value|escape}</p>
+                      <p>{$attrs[3].name|escape}</p>
+                      <p>{$product->attributes[3].value|escape}</p>
                     </div>
                     <div>
-                      <p class="overlay-treatment">Obróbka:</p>
-                      <p>{$product->attributes[5].value|escape}</p>
+                      <p class="overlay-treatment">{$attrs[4].name|escape}</p>
+                      <p>{$product->attributes[4].value|escape}</p>
                     </div>
                   </div>
 
@@ -585,7 +586,7 @@
 
                               {if $isRegularPriceVisible}
                                 <p class="price__regular">
-                                  {translate key="Regular price"}:
+                                  {* {translate key="Regular price"}: *}
                                   <del class="price__inactive">{currency value=$product->defaultStock->getPrice()}</del>
                                 </p>
                               {/if}
@@ -907,5 +908,28 @@
             {/if}
           </div>
         {/foreach}
+      </div>
+      <div class="box__product-categories">
+        <div class="box__product-categories--box">
+          <div class="box__product-categories--content">
+            <h3>Przelew</h3>
+            <p>Aromatyczna kawa</p>
+          </div>
+          <div class="button_wrap"><button class="btn btn-red">Zobacz</button></div>
+        </div>
+        <div class="box__product-categories--box">
+          <div class="box__product-categories--content">
+            <h3>Espresso</h3>
+            <p>Aromatyczna kawa</p>
+          </div>
+          <div class="button_wrap"><button class="btn btn-red">Zobacz</button></div>
+        </div>
+        <div class="box__product-categories--box">
+          <div class="box__product-categories--content">
+            <h3>Akcesoria</h3>
+            <p>Aromatyczna kawa</p>
+          </div>
+          <div class="button_wrap"><button class="btn btn-red">Zobacz</button></div>
+        </div>
       </div>
 {/if}

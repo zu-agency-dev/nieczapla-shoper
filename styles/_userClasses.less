@@ -194,6 +194,16 @@ hr.separator {
     aspect-ratio: 1;
     height: 100%;
     padding: 0 1rem;
+    &:hover {
+      color: @maincolor;
+      border-color: @maincolor;
+      span {
+        color: @maincolor;
+      }
+    }
+    &:focus {
+      background-color: @colorWhite;
+    }
   }
 }
 

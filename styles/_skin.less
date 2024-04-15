@@ -2,7 +2,7 @@
   background-color: @maincolor;
 } // RWD020 - New Basic
 
-@color0: #f1f1f1;
+@color0: #f6f6f6;
 
 // color for boxheads
 @color1: #241f25;
@@ -242,6 +242,7 @@ header {
   border-top: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  padding: 0 5%;
 
   .login-bar {
     margin-bottom: 1rem;
@@ -836,7 +837,7 @@ header {
     & > span,
     h1,
     h3 {
-      background-color: @color0;
+      // background-color: @color0;
       color: @boxHead;
       padding: 0 0.5rem 0 0;
       font-family: "Oswald", sans-serif;
@@ -1525,19 +1526,22 @@ article {
     width: auto;
     top: 0;
     left: 0;
+    padding: 1rem;
 
     li {
+      font-family: 'Oswald', sans-serif;
+      font-size: .875rem;
+      font-weight: 600;
+      text-align: center;
+      text-transform: uppercase;
       width: auto;
       height: auto;
-      padding: 5px 10px;
+      // margin: 0 0.25rem;
+      padding: .5rem .75rem;
       float: none;
       display: inline-block;
       overflow: hidden;
-      margin: 0 0.1em;
-      text-align: center;
-      text-transform: uppercase;
-      font-weight: bold;
-      letter-spacing: 2.18px;
+      // letter-spacing: 2.18px;
 
       span {
         color: @color0;
@@ -1545,11 +1549,11 @@ article {
     }
 
     .promo {
-      background-color: @promoTag;
+      background-color: @maincolor;
     }
 
     .new {
-      background-color: @newTag;
+      background-color: @maincolor;
     }
   }
 
@@ -1650,7 +1654,7 @@ article {
   }
 
   .innerbox {
-    padding: 0;
+    padding: 0 5%;
   }
 }
 
@@ -1677,6 +1681,10 @@ article {
       }
 
       .price {
+        display: flex;
+        flex-direction: row;
+        align-items: enter;
+        justify-content: flex-start;
         padding-top: 0;
         color: @color1;
         min-height: 2rem;
@@ -2154,7 +2162,7 @@ article {
     }
   }
   .basket {
-    float: left;
+    // float: left;
     // margin-bottom: 1.25rem;
 
     .form-basket {
@@ -2247,8 +2255,8 @@ article {
       .number-wrap {
         input {
           border: none;
-          border-top: 2px solid @maincolor;
-          border-bottom: 2px solid @maincolor;
+          border-top: 1px solid @maincolor;
+          border-bottom: 1px solid @maincolor;
           width: 2.5rem !important;
           min-width: 60px;
           height: 100%;
@@ -2625,7 +2633,16 @@ article {
 }
 
 // 16. footer
-// TODO: Footer - Figma
+
+@media (max-width: @breakPointSm) {
+  .footer > .innerfooter > ul.overall {
+    flex-direction: column;
+    ul li {
+      background-color: transparent;
+    }
+  }
+}
+
 .footer {
   background: @maincolor;
   margin-top: 0;
@@ -2642,6 +2659,9 @@ article {
 
     ul {
       &.overall {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5%;
         & > li {
           border-top: 0;
           padding-top: 0;
@@ -2704,6 +2724,8 @@ article {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      gap: 2rem;
+
       .footer__company-details {
         font-family: "Oswald", sans-serif;
         font-weight: 600;
@@ -2747,7 +2769,18 @@ article {
         font-weight: bold;
       }
     }
+    .footer__social {
+      a {
+        font-family: 'Fontawesome', sans-serif;
+        font-size: 1.25rem;
+        padding-left: .5rem;
+        color: @colorWhite;
+      }
+    }
     .footer__meta {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
       text-align: right;
     }
   }
@@ -2808,6 +2841,48 @@ article {
         width: 1rem;
         height: 1rem;
       }
+    }
+  }
+}
+
+@media (min-width: @breakPointSm) and (max-width: @breakPointLg) {
+  .footer__full--left > img { padding: 0 !important; }
+  .footer__full--right {
+    padding-right: 5% !important;
+  }
+}
+
+@media (max-width: @breakPointSm) {
+  .footer__full {
+    width: 90%;
+    padding: 0 5%;
+    flex-direction: column;
+    gap: 2rem;
+    &--left {
+      flex-direction: column;
+      img {
+        margin: 0 auto;
+        padding: 0;
+      }
+      &-content {
+        gap: 2rem;
+      }
+    }
+    &--right {
+      align-items: flex-start;
+      gap: 1rem;
+      .footer__meta {
+        text-align: left;
+      }
+    }
+  }
+}
+
+@media (max-width: @breakPointXs) {
+  .footer__full--right > .footer__menu {
+    flex-direction: column !important;
+    .is-mainmenu {
+      margin-bottom: 1rem;
     }
   }
 }
@@ -3270,7 +3345,7 @@ table {
   .border-radius(0.25rem);
   font-size: 1rem;
   font-weight: bold;
-  border-width: 2px;
+  border-width: 1px;
 
   span {
     color: @maincolor;
@@ -3279,8 +3354,8 @@ table {
 
   &:hover {
     background-color: @color0;
-    border-color: @color6;
-    color: @color6;
+    border-color: @maincolor;
+    color: @maincolor;
 
     span {
       color: @color6;
@@ -4176,6 +4251,12 @@ form input[type="number"].short,
   }
 }
 
+@media (max-width: @breakPointMd) {
+  .categories__wrapper {
+    margin-bottom: 3rem;
+  }
+}
+
 @media (max-width: @breakPointXs) {
   .categories__wrapper {
     flex-direction: column;
@@ -4184,4 +4265,53 @@ form input[type="number"].short,
 
 .color-white {
   color: @colorWhite !important;
+}
+
+.padding-top-medium {
+  padding-top: 2rem;
+}
+
+.box__product-categories {
+  display: grid;
+  margin-top: 2rem;
+  .box__product-categories--box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    color: white;
+    h3 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 1rem;
+    }
+    button {
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 1rem 2rem
+    }
+  }
+  .box__product-categories--box:nth-of-type(1) {
+    background-color: #DCADD2;
+  }
+  .box__product-categories--box:nth-of-type(2) {
+    background-color: #39303B;
+  }
+  .box__product-categories--box:nth-of-type(3) {
+    background-color: #FF7448;
+  }
+}
+
+@media (min-width: @breakPointMd) {
+  .box__product-categories { 
+    grid-template-columns: repeat(3, 1fr);
+    height: 24rem;
+  }
+}
+@media (max-width: @breakPointMd) {
+  .box__product-categories {
+    grid-template-rows: repeat(3, 1fr);
+  }
 }
