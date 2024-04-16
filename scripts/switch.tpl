@@ -19,10 +19,7 @@
     {/literal}
     {if true == $user_logged}Shop.basket.shopVisitorId = '{$user->user->userinfo->user_id|escape|base64_encode}';{/if}
     {if $body_class|escape == 'shop_basket_done'}Shop.basket.orderDone = true;{/if}
-    Shop.basket.basketProducts = '{if 0 != $user->basket->countProducts()}
-        {foreach from=$user->basket item=basket_product name=basket}{$basket_product->product->product->product_id|base64_encode},
-        {/foreach}
-    {/if}';
+    Shop.basket.basketProducts = '{if 0 != $user->basket->countProducts()}{foreach from=$user->basket item=basket_product name=basket}{$basket_product->product->product->product_id|base64_encode},{/foreach}{/if}';
     Shop.basket.categoryProducts = '{foreach from=$products item=product name=prodlist}{$product->product->product_id|base64_encode},{/foreach}';
     Shop.values.currency = '{$currency->currency->name}';
     Shop.values.decimalSep = '{$number_decimal_sep}';

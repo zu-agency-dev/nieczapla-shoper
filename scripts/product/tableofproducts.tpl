@@ -21,7 +21,7 @@
       {/if}
     </div>
       <div class="categories__wrapper categories__description--wrapper">
-        <span class="categories__item--description">zalewajka/aerospress/drip</span>
+        <span class="categories__item--description">{$categories[1].name|escape} zalewajka/aerospress/drip</span>
         <span class="categories__item--description">ekspres kolbowy/ekspres ciśnieniowy</span>
         <span class="categories__item--description">filtry/młynki/merch</span>
       </div>
@@ -497,11 +497,11 @@
 
                   <div class="img-overlay">
                     <div class="overlay-notes">
-                      <p>{$product->attributes[2].key|escape}</p>
+                      <p>{$product->product->product_id}</p>
                       <p>{$product->attributes[2].value|escape}</p>
                     </div>
                     <div class="overlay-variation">
-                      <p>{$attrs[3].name|escape}</p>
+                      <p>{$product->attributes[3].name|escape}</p>
                       <p>{$product->attributes[3].value|escape}</p>
                     </div>
                     <div>
@@ -919,21 +919,21 @@
             <h3>Przelew</h3>
             <p>Aromatyczna kawa</p>
           </div>
-          <div class="button_wrap"><button class="btn btn-red">Zobacz</button></div>
+          <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
         </div>
         <div class="box__product-categories--box">
           <div class="box__product-categories--content">
             <h3>Espresso</h3>
             <p>Aromatyczna kawa</p>
           </div>
-          <div class="button_wrap"><button class="btn btn-red">Zobacz</button></div>
+          <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
         </div>
         <div class="box__product-categories--box">
           <div class="box__product-categories--content">
             <h3>Akcesoria</h3>
             <p>Aromatyczna kawa</p>
           </div>
-          <div class="button_wrap"><button class="btn btn-red">Zobacz</button></div>
+          <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
         </div>
       </div>
 {/if}
