@@ -15,12 +15,16 @@
               {if $link->isPopup()}target="_blank" rel="noopener" {/if} href="{$link->getHref($view)|escape}"
               title="{$link->getTitle()|escape}" id="headlink{$link->getIdentifier()}" class="categories__item">
               <span class="categories__item--title">{$link->getTitle()|escape}</span>
-              <span class="categories__item--description">Category description...</span>
             </a>
           {/if}
         {/foreach}
       {/if}
     </div>
+      <div class="categories__wrapper categories__description--wrapper">
+        <span class="categories__item--description">zalewajka/aerospress/drip</span>
+        <span class="categories__item--description">ekspres kolbowy/ekspres ciśnieniowy</span>
+        <span class="categories__item--description">filtry/młynki/merch</span>
+      </div>
 
     {if 'full' == $view || $view == 'desc'}
       <div class="products view{$view}" {if $price_mode == '2'}data-netto="true" {/if}>
