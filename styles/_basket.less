@@ -205,7 +205,7 @@
                 display: inline-block;
 
                 input {
-                    width: 8em;
+                    // width: 8em;
                     position: relative;
                     top: 2px;
                 }
@@ -676,7 +676,7 @@
 
 .basket-step-border {
     border: 1px solid @borderColor;
-    padding: 1em 1.5em 1.5em;
+    // padding: 1em 1.5em 1.5em;
 
     h3 {
         margin-top: 0;
@@ -989,4 +989,123 @@
 
 .break_word {
     word-break: break-word;
+}
+
+// Skrócony Koszyk Zakupowy + Konfiguracja
+.box .boxhead {
+    background: transparent !important;
+}
+
+.delivery,
+.payment {
+    display: flex;
+    justify-content: space-between;
+    .radio-wrap {
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid @maincolor;
+        cursor: pointer;
+    }
+}
+.delivery.selected,
+.payment.selected {
+    .radio-wrap {
+        background-color: @maincolor;
+    }
+}
+
+.payment-container,
+.delivery-container {
+    h5 {
+       font-family: 'Oswald', sans-serif;
+       font-weight: 500;
+       letter-spacing: 0 !important; 
+    }
+}
+
+.payment-container {
+    padding-top: .75rem !important;
+}
+
+.wce_section {
+    display: flex !important;
+    flex-direction: column;
+    padding-top: 2rem;
+    .wce_item-header {
+        font-family: 'Oswald', sans-serif;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+}
+
+.wce_section-right {
+    input {
+        background-color: transparent;
+        border-color: @maincolor;
+    }
+}
+
+.wce_row-input-address-type {
+    display: flex;
+    label:not(:empty) {
+        border: 1px solid @maincolor;
+        border-collapse: collapse;
+        padding: .5rem 1rem;
+    }
+    label[for="input_address_type2"]:not(:empty) {
+        border-left: 0;
+    }
+}
+
+#wceSendCart-extra {
+    text-transform: uppercase;
+}
+
+.wce_sc-tab-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    text-wrap: nowrap;
+    .wce_ico {
+        display: none;
+    }
+    span {
+        width: fit-content;
+    }
+    .btn,
+    .btn-red { padding: 0 !important; }
+}
+
+.wceShortCart .form-row textarea,
+.wceShortCart .form-row input,
+.wceShortCart .form-row select {
+    background-color: transparent !important;
+    border-color: @maincolor !important;
+}
+
+.label > label {
+    background-color: @bgcolor !important;
+}
+
+.summary-container {
+    background: darken(@bgcolor, 5%) !important;
+    .sum { 
+        margin: 0 !important; 
+        grid-gap: 0 !important;
+    }
+    .recount > span > .sum > em,
+    .deliveryhead > .value > em,
+    .sum > .value {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.5rem !important;
+        color: @maincolor !important;
+    }
+}
+
+@media (max-width: @breakPointMd) {   
+    .box_wce-sc-theme-1 {
+        .boxhead {
+            padding: 0 1rem;
+        }
+    }
 }

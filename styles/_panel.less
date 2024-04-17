@@ -119,3 +119,52 @@ table.products {
 		vertical-align: top;
 	}
 }
+
+#box_useredit,
+#box_passchange {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100vh;
+	.save {
+		padding: 1rem 2rem;
+	}
+}
+
+.shop_panel_addresses > div > .main {
+	margin-top: 2rem;
+}
+
+#box_addresses {
+	min-height: 60vh;
+	.innerbox {
+		padding: 0;
+
+		.addresses {
+			li:last-of-type { border-bottom: 0 !important; }
+			li {
+				margin: 1rem 0;
+				padding: 0 2rem;
+				&.odd { padding: 1rem 2rem; }
+
+				.links {
+					em {
+						position: relative;
+						top: 3px;
+						margin-right: .25rem;
+						padding: 1rem 2rem;
+						background-color: @maincolor;
+						color: @fontLightColor;
+						font-family: 'Oswald', sans-serif;
+						text-transform: uppercase;
+						cursor: default;
+					}
+				}
+			}
+		}
+		a {
+			padding: 1rem 2rem;
+			font-weight: 500;
+		}
+	}
+}

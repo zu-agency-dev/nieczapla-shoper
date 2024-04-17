@@ -927,8 +927,15 @@
 }
 
 #box_panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+
     h4 {
+        font-family: 'Oswald', sans-serif;
         font-size: 1.25rem;
+        text-transform: uppercase;
         padding: 1rem 0;
     }
 
@@ -1089,6 +1096,10 @@
 }
 
 #box_address {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
     td {
         &.label {
             text-align: right;
@@ -1106,6 +1117,10 @@
 
     select {
         margin-bottom: .25rem;
+    }
+    .save, 
+    .undo {
+        padding: 1rem 2rem;
     }
 }
 

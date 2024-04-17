@@ -32,25 +32,6 @@ window.addEventListener("DOMContentLoaded", () => {
   };
 });
 
-// window.addEventListener("DOMContentLoaded", () => {
-//   const itemPrice = document.querySelector(".main-price");
-//   const radioWrapLabel = document.querySelectorAll(".radio-wrap + label");
-//   const observer = new MutationObserver(function (mutations) {
-//     mutations.forEach(function (mutation) {
-//       console.log(mutation.type); // <- It always detects changes
-//       if (itemPrice.innerHTML) {
-//         console.log(itemPrice.innerHTML);
-//       }
-//     });
-//   });
-
-//   var config = { characterData: true, subtree: true };
-//   observer.observe(itemPrice, config);
-//   //observer.disconnect();
-
-//   console.log(radioWrapLabel);
-// });
-
 window.addEventListener("DOMContentLoaded", () => {
 const notes = document.querySelectorAll('.overlay-notes > p');
 notes.forEach((note) => {

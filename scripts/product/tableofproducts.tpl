@@ -15,16 +15,12 @@
               {if $link->isPopup()}target="_blank" rel="noopener" {/if} href="{$link->getHref($view)|escape}"
               title="{$link->getTitle()|escape}" id="headlink{$link->getIdentifier()}" class="categories__item">
               <span class="categories__item--title">{$link->getTitle()|escape}</span>
+              <span class="categories__item--description"></span>
             </a>
           {/if}
         {/foreach}
       {/if}
     </div>
-      <div class="categories__wrapper categories__description--wrapper">
-        <span class="categories__item--description">{$categories[1].name|escape} zalewajka/aerospress/drip</span>
-        <span class="categories__item--description">ekspres kolbowy/ekspres ciśnieniowy</span>
-        <span class="categories__item--description">filtry/młynki/merch</span>
-      </div>
 
     {if 'full' == $view || $view == 'desc'}
       <div class="products view{$view}" {if $price_mode == '2'}data-netto="true" {/if}>
@@ -497,15 +493,15 @@
 
                   <div class="img-overlay">
                     <div class="overlay-notes">
-                      <p>{$product->product->product_id}</p>
+                      <p>{if $product->defaultCategory->translation->name == 'Akcesoria'}Producent:{else} {/if}</p>
                       <p>{$product->attributes[2].value|escape}</p>
                     </div>
                     <div class="overlay-variation">
-                      <p>{$product->attributes[3].name|escape}</p>
+                      <p>{if $product->defaultCategory->translation->name == 'Akcesoria'}Ilość sztuk w opakowaniu:{else}Odmiana:{/if}</p>
                       <p>{$product->attributes[3].value|escape}</p>
                     </div>
-                    <div>
-                      <p class="overlay-treatment">{$attrs[4].name|escape}</p>
+                    <div class="overlay-treatment">
+                      <p>{if $product->defaultCategory->translation->name == 'Akcesoria'}Waga produktu:{else}Obróbka:{/if}</p>
                       <p>{$product->attributes[4].value|escape}</p>
                     </div>
                   </div>
@@ -913,27 +909,43 @@
           </div>
         {/foreach}
       </div>
+      
       <div class="box__product-categories">
-        <div class="box__product-categories--box">
-          <div class="box__product-categories--content">
-            <h3>Przelew</h3>
-            <p>Aromatyczna kawa</p>
+      {if count($headerlinks)}
+        {foreach from=$headerlinks item=link}
+          {if $link->getHref() || $link->isActiveCategory()}
+          <div class="box__product-categories--box">
+            <div class="box__product-categories--content">
+              <h3>{$link->getTitle()|escape}</h3>
+              <p></p>
+            </div>
+            <div class="button_wrap">
+              <a class="btn btn-red" 
+                {if $link->isCategory()}id="hcategory_{$link->getCategoryId()|escape}" {/if}
+                href="{$link->getHref($view)|escape}"
+                title="{$link->getTitle()|escape}" 
+                id="headlink{$link->getIdentifier()}" 
+                class="categories__item"
+              >Zobacz</a>
+            </div>
           </div>
-          <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
-        </div>
-        <div class="box__product-categories--box">
-          <div class="box__product-categories--content">
-            <h3>Espresso</h3>
-            <p>Aromatyczna kawa</p>
-          </div>
-          <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
-        </div>
-        <div class="box__product-categories--box">
-          <div class="box__product-categories--content">
-            <h3>Akcesoria</h3>
-            <p>Aromatyczna kawa</p>
-          </div>
-          <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
-        </div>
+          {/if}
+        {/foreach}
+      {/if}
       </div>
+      <!-- <div class="box__product-categories--box">
+        <div class="box__product-categories--content">
+          <h3>Espresso</h3>
+          <p>Aromatyczna kawa</p>
+        </div>
+        <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
+      </div>
+      <div class="box__product-categories--box">
+        <div class="box__product-categories--content">
+          <h3>Akcesoria</h3>
+          <p>Aromatyczna kawa</p>
+        </div>
+        <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
+      </div>
+    </div> -->
 {/if}

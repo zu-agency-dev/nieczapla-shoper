@@ -1781,11 +1781,14 @@
   }
 }
 
+img {
+  transition: opacity .25s ease;
+}
 .img-overlay {
   position:absolute;
   top: 100%;
   transition: all .25s ease-in-out;
-  // animate top: 0% -> 100% to show overlay
+  transition-delay: .25s;
 
   display: flex;
   flex-direction: column;
@@ -1805,6 +1808,7 @@
 }
 
 .product-main-wrap:hover {
+  img { opacity: 0; }
   .img-overlay {
     top: 0%;
   }
@@ -1892,7 +1896,7 @@
   .product__details--text-wrapper {
     background-color: #FFF;
     flex: 1;
-    padding: 1rem 1rem 0;
+    padding: 1rem;
     .prodname {
       margin-bottom: 1rem;
     }

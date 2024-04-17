@@ -22,6 +22,7 @@
     <link rel="preconnect" href="//fonts.gstatic.com">
     <link rel="preload" as="font" type="font/woff" href="{$path}images/rwd-custom.woff?gptqpz" crossorigin>
     <link rel="preload" as="font" type="font/woff" href="{$path}images/fontawesome-webfont.woff?v=4.0.3" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
 
     {plugin module=shop template=pre-head}
     

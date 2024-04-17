@@ -28,7 +28,7 @@
                                     <table class="productlist table zebra">
                                         <thead>
                                             <tr>
-                                                <td class="large img"></td>
+                                                {* <td class="large img"></td> *}
                                                 <td class="name">{translate key="Product"}</td>
                                                 {if $showDelivery}
                                                     <td class="rwd-hide-medium time">{translate key="Dispatched within"}</td>

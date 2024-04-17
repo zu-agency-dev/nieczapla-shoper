@@ -466,7 +466,7 @@ header {
 }
 
 .basket-contain {
-  min-width: 360px;
+  min-width: 280px;
   right: 0;
   left: initial !important;
   border: 1px solid @color11;
@@ -572,6 +572,7 @@ header {
         .transition();
 
         h3 {
+          font-family: 'Roboto', sans-serif !important;
           margin-top: 0;
           font-size: 1rem;
 
@@ -882,7 +883,6 @@ header {
 
   .productdetails--p {
     text-align: left;
-    text-wrap: nowrap;
     max-width: 12.5rem;
     padding-top: 0.5rem;
   }
@@ -1335,8 +1335,18 @@ header {
   }
 
   &#box_login {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    .innerbox {
+      display: flex;
+      width: 100%;
+    }
     .login-head,
     .register-head {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      text-transform: uppercase;
       color: @color1;
       font-size: 1.5rem;
       margin-bottom: 1.25rem;
@@ -1372,6 +1382,9 @@ header {
 
       a {
         text-decoration: underline;
+      }
+      button {
+        padding: 1rem 2rem;
       }
     }
   }
@@ -1567,7 +1580,7 @@ article {
     max-width: 57%;
     text-align: left;
     margin-bottom: 0;
-    min-height: 2rem;
+    // min-height: 2rem;
     .box-sizing();
 
     em {
@@ -1741,7 +1754,6 @@ article {
         }
         .productdetails--p {
           text-align: left;
-          text-wrap: nowrap;
           max-width: 12.5rem;
           padding-top: 0.5rem;
         }
@@ -2651,10 +2663,11 @@ article {
   // border-bottom: 1px solid @color10;
   color: #fff;
 
+  // .innerfooter:has(.overall:empty) .innerfooter { display: none !important; }
   .innerfooter {
     background: @maincolor;
-    padding-top: 60px;
-    padding-bottom: 30px;
+    // padding-top: 60px;
+    // padding-bottom: 30px;
     border: 0;
 
     ul {
@@ -2711,6 +2724,7 @@ article {
 .footer__full {
   display: flex;
   width: 100%;
+  padding: 2rem 0;
   
   &--left {
     display: flex;
@@ -2757,6 +2771,12 @@ article {
     justify-content: space-between;
     align-items: flex-end;
     flex: 1;
+    &-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+    }
 
     .footer__menu {
       display: flex;
@@ -2765,7 +2785,7 @@ article {
 
       li > a { color: @colorWhite; }
       &.is-mainmenu > li > a {
-        font-size: 1.25rem;
+        font-size: 1rem;
         font-weight: bold;
       }
     }
@@ -2871,6 +2891,9 @@ article {
     &--right {
       align-items: flex-start;
       gap: 1rem;
+      &-wrapper {
+        text-align: right;
+      }
       .footer__meta {
         text-align: left;
       }
@@ -2903,7 +2926,7 @@ article {
 
       .promocode {
         .checkbox-wrap {
-          .border-radius(0.25rem);
+          // .border-radius(0.25rem);
 
           input[type="checkbox"]:checked + label {
             &::after {
@@ -2918,7 +2941,7 @@ article {
 
         .shaded_inputwrap {
           display: inline-block;
-          width: 240px;
+          // width: 240px;
 
           input {
             height: 45px;
@@ -3346,20 +3369,33 @@ table {
   font-size: 1rem;
   font-weight: bold;
   border-width: 1px;
-
-  span {
-    color: @maincolor;
-    text-transform: uppercase;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: @maincolor;
+    transition: all .25s;
+    z-index: -1;
+    transform: translateY(100%);
+  }
+  
+  &:hover::before {
+    transform: translateY(0);
   }
 
   &:hover {
-    background-color: @color0;
-    border-color: @maincolor;
-    color: @maincolor;
 
+    color: @colorWhite;
     span {
-      color: @color6;
+      color: @colorWhite !important;
     }
+  }
+  span {
+    color: @maincolor;
+    text-transform: uppercase;
   }
 
   &.btn-red {
@@ -3403,6 +3439,7 @@ table {
 }
 
 .up {
+  display: none;
   .btn {
     // background-color: transparent;
     background-color: @maincolor;
@@ -4280,6 +4317,7 @@ form input[type="number"].short,
     justify-content: space-between;
     padding: 2rem;
     color: white;
+    aspect-ratio: 1;
     h3 {
       font-family: 'Oswald', sans-serif;
       font-weight: 600;
@@ -4287,27 +4325,35 @@ form input[type="number"].short,
       color: white;
       margin-bottom: 1rem;
     }
-    button {
+    a {
       text-transform: uppercase;
       font-weight: 500;
-      padding: 1rem 2rem
+      padding: 1rem 2rem;
     }
+    &:has(a[id*="headlink"]) {
+        display: none;
+      }
   }
-  .box__product-categories--box:nth-of-type(1) {
+  .box__product-categories--box:nth-of-type(5) {
     background-color: #DCADD2;
+
+    p::after { content: 'Kawa w kategorii przelew...'; }
   }
-  .box__product-categories--box:nth-of-type(2) {
+  .box__product-categories--box:nth-of-type(6) {
     background-color: #39303B;
+
+    p::after { content: 'Kawa w kategorii espresso...'; }
   }
-  .box__product-categories--box:nth-of-type(3) {
+  .box__product-categories--box:nth-of-type(7) {
     background-color: #FF7448;
+
+    p::after { content: 'Zobacz akcesoria...'; }
   }
 }
 
 @media (min-width: @breakPointMd) {
   .box__product-categories { 
     grid-template-columns: repeat(3, 1fr);
-    height: 24rem;
   }
 }
 @media (max-width: @breakPointMd) {
@@ -4319,5 +4365,22 @@ form input[type="number"].short,
 .categories__item--description {
   width: 100%;
   text-align: center;
-  transform: translateY(-4rem);
+}
+
+.categories__wrapper > a:nth-of-type(5) {
+  span.categories__item--description::after {
+    content: 'Przelew | Aeropress | Frenchpress';
+  }
+}
+
+.categories__wrapper > a:nth-of-type(6) {
+  span.categories__item--description::after {
+    content: 'Kolba | Automat | Kawiarka';
+  }
+}
+
+.categories__wrapper > a:nth-of-type(7) {
+  span.categories__item--description::after {
+    content: 'Filtry | Merch | Inne';
+  }
 }
