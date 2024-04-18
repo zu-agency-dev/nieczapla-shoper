@@ -133,8 +133,8 @@ hr.separator {
     .transition(background-color 0.1s linear);
 
     color: @colorWhite;
-    background-color: @colorBlack;
-    border-color: @colorBlack;
+    background-color: @maincolor;
+    border-color: @maincolor;
   }
 
   &.btn-red {
@@ -222,7 +222,8 @@ hr.separator {
       }
     }
     &:focus {
-      background-color: @colorWhite;
+      background-color: @maincolor;
+      color: @colorWhite;
     }
   }
 }
