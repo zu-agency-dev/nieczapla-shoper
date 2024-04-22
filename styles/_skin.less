@@ -543,6 +543,18 @@ header {
 
 // 6. menu
 
+@media (min-width: @breakPointSm) {
+  .menu-list {
+    li {
+      padding: 0 1.5rem !important;
+
+      h3 {
+        a { font-size: 1rem !important; }
+      }
+    }
+  }
+}
+
 .menu {
   display: flex;
   align-items: center;
@@ -570,16 +582,15 @@ header {
 
       li {
         .transition();
-        padding: 0 1.5rem;
 
         h3 {
           font-family: 'Roboto', sans-serif !important;
           text-transform: none;
           margin-top: 0;
-          font-size: 1rem;
+          font-size: .875rem;
 
           a {
-            font-size: 1rem;
+            font-size: .875rem;
             font-weight: 400;
             display: inline-block;
             // letter-spacing: 1px;
@@ -600,11 +611,11 @@ header {
 
           li {
             float: left;
-            font-size: 1rem;
+            font-size: .875rem;
 
             h3 {
               a {
-                font-size: 1rem;
+                font-size: .875rem;
                 padding: 0.5rem 2.5rem;
               }
             }
@@ -4375,17 +4386,17 @@ form input[type="number"].short,
   .box__product-categories--box:nth-of-type(5) {
     background-color: #DCADD2;
 
-    p::after { content: 'Kawa w kategorii przelew...'; }
+    p::after { content: 'Przelew | Aeropress | Frenchpress'; }
   }
   .box__product-categories--box:nth-of-type(6) {
     background-color: #39303B;
 
-    p::after { content: 'Kawa w kategorii espresso...'; }
+    p::after { content: 'Kolba | Automat | Kawiarka'; }
   }
   .box__product-categories--box:nth-of-type(7) {
     background-color: #FF7448;
 
-    p::after { content: 'Zobacz akcesoria...'; }
+    p::after { content: 'Filtry | Merch | Inne'; }
   }
 }
 

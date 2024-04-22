@@ -1943,6 +1943,17 @@ img {
   }
 }
 
+@media (min-width: @breakPointSm) {
+  .product__details--wrapper {
+    min-height: 10rem;
+    .product__details--text-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
+
 .prodimage {
   aspect-ratio: 1;
   .img-wrap {
@@ -2034,7 +2045,9 @@ img {
     background-color: #DCADD2;
   }
   div:nth-of-type(2) {
-    background: url('#');
+    background-image: url('https://uploads-ssl.webflow.com/65f9504fbd7ae6074415836b/66264d056d7e9e59870bc85e_ncz-product-description-img.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
   }
   div:nth-of-type(3) {
     background-color: #39303B;

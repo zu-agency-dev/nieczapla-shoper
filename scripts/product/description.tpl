@@ -31,7 +31,7 @@
                     <h3>Tytuł 1</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci eum earum amet fugiat harum nostrum alias, architecto vero laborum excepturi?</p>
                 </div>
-                <div><img src="" alt="" /></div>
+                <div></div>
                 <div>
                     <h3>Tytuł 2</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci eum earum amet fugiat harum nostrum alias, architecto vero laborum excepturi?</p>
