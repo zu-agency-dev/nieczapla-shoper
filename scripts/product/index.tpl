@@ -23,13 +23,6 @@
           {if 1 == $product->translation->active || $adminPreview == true}
             <div class="box row" id="box_productfull"
               data-category="{$product->defaultCategory->translation->name|escape}">
-              {*
-              <div class="boxhead">
-                <h1 class="name{if $visibility.gallery_and_name_gray} product_inactive{/if}" itemprop="name">
-                {$product->translation->name|escape}
-                </h1>
-              </div> 
-              *}
 
               <div class="innerbox product-main-box" data-loading="{translate key="File upload in progress"}...">
                 <div class="maininfo row">
@@ -38,6 +31,11 @@
                     {include file='product/gallery.tpl'}
                     <div class="f-grid-6 product-details__grid">
                       <div class="availability row">
+                        <div class="boxhead">
+                          <h1 class="name{if $visibility.gallery_and_name_gray} product_inactive{/if}" itemprop="name">
+                          {$product->translation->name|escape} ({$product->stock->stock->weight|escape}g)
+                          </h1>
+                        </div> 
                         {if $product->defaultStock && ( 1 == $skin_settings->productdetails->availability || ( 1 == $skin_settings->productdetails->time && $product->canBuyStock() ) || ( 1 == $skin_settings->productdetails->shippingcost && $product->canBuyStock() && $enablebasket === true )) }
                           {if $product->defaultStock->stock->code}
                             <meta itemprop="sku" content="{$product->defaultStock->stock->code|escape}" />
@@ -58,7 +56,7 @@
                           <div class="row">
                             <div class="boxhead">
                               <h1 class="name{if $visibility.gallery_and_name_gray} product_inactive{/if}" itemprop="name">
-                                {$product->translation->name|escape}
+                                {$product->translation->name|escape} ({$product->stock->stock->weight|escape}g)
                               </h1>
                               {if count($attrs)}
                                 <h2 class="subname{if $visibility.gallery_and_name_gray} product_inactive{/if}">
@@ -711,7 +709,7 @@
                           </form>
 
                           <p
-                            class="center mt-2 r--fs-xl js__product-availability{if !$visibility.additional_text} none{/if}">
+                            class="product-unavailable center mt-2 r--fs-xl js__product-availability{if !$visibility.additional_text} none{/if}">
                             {translate key="product unavailable"}
                           </p>
 

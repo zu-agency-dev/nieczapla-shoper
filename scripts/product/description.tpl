@@ -27,16 +27,16 @@
             {/if}
 
             <div class="description__box">
-                <div>
-                    <h3>Tytuł 1</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci eum earum amet fugiat harum nostrum alias, architecto vero laborum excepturi?</p>
+                <div style="line-height: 150%;">
+                    <h3>Ważne!</h3>
+                    <p>Jakość wody użytej do zaparzenia waszej kawy (każdej) ma kluczowe znaczenie dla uzyskania pełnego profilu smakowego podanego przez daną palarnię. Zalecamy używanie wody źródlanej o ogólnej mineralizacji poniżej 300mg/l (taką informację znajdziecie na każdej etykiecie). Alternatywą jest woda z systemów odwróconej osmozy z mineralizacją.</p>
                 </div>
                 <div></div>
-                <div>
+                <div style="display: none;">
                     <h3>Tytuł 2</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci eum earum amet fugiat harum nostrum alias, architecto vero laborum excepturi?</p>
                 </div>
-                <div>
+                <div style="display: none;">
                     <h3>Tytuł 3</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci eum earum amet fugiat harum nostrum alias, architecto vero laborum excepturi?</p>
                 </div>

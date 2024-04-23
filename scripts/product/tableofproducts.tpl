@@ -6,7 +6,6 @@
       {assign var="columnCounter" value=$columnCounter-1}
     {/if}
 
-    <!-- TODO: Categories description -->
     <div class="categories__wrapper">
       {if count($headerlinks)}
         {foreach from=$headerlinks item=link}
@@ -15,7 +14,11 @@
               {if $link->isPopup()}target="_blank" rel="noopener" {/if} href="{$link->getHref($view)|escape}"
               title="{$link->getTitle()|escape}" id="headlink{$link->getIdentifier()}" class="categories__item">
               <span class="categories__item--title">{$link->getTitle()|escape}</span>
-              <span class="categories__item--description"></span>
+                <span class="categories__item--description">
+                  {if $link->getCategoryId() == 38}Przelew | Aeropress | Frenchpress{/if}
+                  {if $link->getCategoryId() == 39}Kolba | Automat | Kawiarka{/if}
+                  {if $link->getCategoryId() == 40}Filtry | Merch | Inne{/if}
+                </span>
             </a>
           {/if}
         {/foreach}
@@ -917,7 +920,11 @@
           <div class="box__product-categories--box">
             <div class="box__product-categories--content">
               <h3>{$link->getTitle()|escape}</h3>
-              <p></p>
+              <p>
+                {if $link->getCategoryId() == 38}Przelew | Aeropress | Frenchpress{/if}
+                {if $link->getCategoryId() == 39}Kolba | Automat | Kawiarka{/if}
+                {if $link->getCategoryId() == 40}Filtry | Merch | Inne{/if}
+              </p>
             </div>
             <div class="button_wrap">
               <a class="btn btn-red" 
@@ -933,19 +940,4 @@
         {/foreach}
       {/if}
       </div>
-      <!-- <div class="box__product-categories--box">
-        <div class="box__product-categories--content">
-          <h3>Espresso</h3>
-          <p>Aromatyczna kawa</p>
-        </div>
-        <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
-      </div>
-      <div class="box__product-categories--box">
-        <div class="box__product-categories--content">
-          <h3>Akcesoria</h3>
-          <p>Aromatyczna kawa</p>
-        </div>
-        <div class="button_wrap"><a href="#" class="btn btn-red">Zobacz</a></div>
-      </div>
-    </div> -->
 {/if}
