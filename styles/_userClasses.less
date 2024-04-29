@@ -211,11 +211,17 @@ hr.separator {
     border-color: #929292;
     background-color: #929292;
   }
+
+  @media (min-width: @breakPointSm) {
+    .btn-quantity {
+      height: 100%;
+    } 
+  }
+
   &.btn-quantity {
     font-family: FontAwesome;
     font-size: .75rem;
-    aspect-ratio: 1;
-    height: 100%;
+    width: 4rem;
     padding: 0 1rem;
     &:hover {
       color: @maincolor;

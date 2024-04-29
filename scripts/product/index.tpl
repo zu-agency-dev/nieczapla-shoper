@@ -31,11 +31,17 @@
                     {include file='product/gallery.tpl'}
                     <div class="f-grid-6 product-details__grid">
                       <div class="availability row">
-                        <div class="boxhead">
-                          <h1 class="name{if $visibility.gallery_and_name_gray} product_inactive{/if}" itemprop="name">
-                          {$product->translation->name|escape} ({$product->stock->stock->weight|escape}g)
-                          </h1>
-                        </div> 
+                            <div class="boxhead">
+                              <h1 class="name{if $visibility.gallery_and_name_gray} product_inactive{/if}" itemprop="name">
+                                {$product->translation->name|escape} ({$product->stock->stock->weight|escape}g)
+                              </h1>
+                              {if count($attrs)}
+                                <h2 class="subname{if $visibility.gallery_and_name_gray} product_inactive{/if}">
+                                  {$attrs[0].value|escape}/{$attrs[1].value|escape}
+                                </h2>
+                              {/if}
+                            </div>
+                       
                         {if $product->defaultStock && ( 1 == $skin_settings->productdetails->availability || ( 1 == $skin_settings->productdetails->time && $product->canBuyStock() ) || ( 1 == $skin_settings->productdetails->shippingcost && $product->canBuyStock() && $enablebasket === true )) }
                           {if $product->defaultStock->stock->code}
                             <meta itemprop="sku" content="{$product->defaultStock->stock->code|escape}" />
@@ -53,17 +59,7 @@
                             <meta itemprop="gtin" content="{$product->stock->getAdditionalField('isbn')|escape}" />
                           {/if}
 
-                          <div class="row">
-                            <div class="boxhead">
-                              <h1 class="name{if $visibility.gallery_and_name_gray} product_inactive{/if}" itemprop="name">
-                                {$product->translation->name|escape} ({$product->stock->stock->weight|escape}g)
-                              </h1>
-                              {if count($attrs)}
-                                <h2 class="subname{if $visibility.gallery_and_name_gray} product_inactive{/if}">
-                                  {$attrs[0].value|escape}/{$attrs[1].value|escape}
-                                </h2>
-                              {/if}
-                            </div>
+                          <div class="row price-delivery">
                             <div class="price-delivery__wrapper">
                               {if $loyalty_exchange}
                                 <div class="price">
@@ -590,6 +586,7 @@
 
                             <fieldset
                               class="addtobasket-container{if false == $enablebasket || 0 == (int) $product->defaultStock->availability->availability->can_buy} none{/if}">
+                              <div class="addtobasket-container__wrapper">
                               <button type="button" id="minusQuantity" class="btn btn-quantity"><span
                                   class="fa-sharp fa-solid fa-minus"></span></button>
                               <div class="quantity_wrap">
@@ -597,7 +594,7 @@
                                 <span class="number-wrap">
                                   <input name="quantity" value="{float precision=$QUANTITY_PRECISION value=1 trim=true}"
                                     type="{if $product->unit->unit->floating_point == 0}number{else}text{/if}"
-                                    class="short inline addtobasket-input-quantity">
+                                    class="inline addtobasket-input-quantity">
                                 </span>
                                 <span class="unit none">{$product->unit->translation->name|escape}</span>
                                 <input type="hidden" value="{$stock_id|escape}" name="stock_id">
@@ -606,54 +603,14 @@
 
                                 {if $product->isBundle()}
                                   <input type="hidden" value="{foreach from=$product->bundle->items item=item name=bundles}{$item->getIdentifier()}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     {if !$smarty.foreach.bundles.last},
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     {/if}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                   {/foreach}" name="bundle_stocks">
                                 {/if}
                               </div>
                               <button type="button" id="plusQuantity" class="btn btn-quantity"><span
                                   class="fa-sharp fa-solid fa-plus"></span></button>
+                              </div>
                               <div class="button_wrap">
                                 <button type="submit" class="addtobasket btn btn-red">
                                   <img src="{baseDir}/libraries/images/1px.gif" alt="{translate key='Add to cart'}"

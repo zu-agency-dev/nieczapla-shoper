@@ -499,32 +499,14 @@
                       <p>{if $product->defaultCategory->translation->name == 'Akcesoria'}Producent:{else} {/if}</p>
                       <p>{$product->attributes[2].value|escape}</p>
                     </div>
-                    <div class="overlay-variation">
+                    <!-- <div class="overlay-variation">
                       <p>{if $product->defaultCategory->translation->name == 'Akcesoria'}Ilość sztuk w opakowaniu:{else}Odmiana:{/if}</p>
                       <p>{$product->attributes[3].value|escape}</p>
                     </div>
                     <div class="overlay-treatment">
                       <p>{if $product->defaultCategory->translation->name == 'Akcesoria'}Waga produktu:{else}Obróbka:{/if}</p>
                       <p>{$product->attributes[4].value|escape}</p>
-                    </div>
-                  </div>
-
-                  <noscript>
-                    <img src="{imageUrl type='productGfx' width=$skin_settings->img->medium height=$skin_settings->img->medium
-                                    image=$product->getPromotingGfxName() overlay=1}"
-                      alt="{$product->translation->name|escape}" />
-                  </noscript>
-                </span>
-              </a>
-              <div class="product__details--wrapper">
-                <div class="product__details--text-wrapper">
-                  <div class="prodname f-row">
-                    <a href="{route function=$productRoute key=$product->product->product_id productName=$product->translation->name productId=$product->product->product_id}"
-                      class="productname"
-                      title="{$product->translation->name|escape}">{$product->translation->name|escape}</a>
-                    <p class="productdetails--p">
-                      {$product->attributes[0].value|escape}/{$product->attributes[1].value|escape}</p>
-                  </div>
+                    </div> -->
                   <div class="product__basket">
                     <div class="price f-row">
                       {if $loyalty_exchange}
@@ -779,6 +761,289 @@
                       {/if}
                     </div>
                   </div>
+                  <div class="button-wrap">
+                    {if !$product->isBundle() || !$bundleHasVariants}
+                      <button class="addtobasket btn btn-red" type="submit">
+                        <img src="{baseDir}/libraries/images/1px.gif" alt="" class="px1" />
+                        <span>{if $loyalty_exchange}{translate key="Exchange"}{else}{translate key="Add to cart"}{/if}</span>
+                      </button>
+                    {else}
+                      <a href="{route function=$productRoute key=$product->product->product_id productName=$product->translation->name productId=$product->product->product_id}"
+                        class="btn btn-red">{if $loyalty_exchange}{translate key="Exchange"}{else}{translate key="Add to cart"}{/if}</a>
+                    {/if}
+                  </div>
+                  </div>
+
+                  <noscript>
+                    <img src="{imageUrl type='productGfx' width=$skin_settings->img->medium height=$skin_settings->img->medium
+                                    image=$product->getPromotingGfxName() overlay=1}"
+                      alt="{$product->translation->name|escape}" />
+                  </noscript>
+                </span>
+              </a>
+              <div class="product__details--wrapper">
+                <div class="product__details--text-wrapper">
+                  <div class="prodname prodname-center f-row">
+                    <a href="{route function=$productRoute key=$product->product->product_id productName=$product->translation->name productId=$product->product->product_id}"
+                      class="productname"
+                      title="{$product->translation->name|escape}">{$product->translation->name|escape}</a>
+                    <!-- <p class="productdetails--p">
+                      {$product->attributes[0].value|escape}/{$product->attributes[1].value|escape}</p> -->
+                  </div>
+                  <!-- <div class="product__basket">
+                    <div class="price f-row">
+                      {if $loyalty_exchange}
+                        <span>{translate key="Price"}:</span>
+                        <em>
+                          {float precision=0 value=$product->defaultStock->loyaltyPointsPrice(true)}
+
+                          {if $product->defaultStock->loyaltyCurrencyPrice() != 0}
+                            + {currency value=$product->defaultStock->loyaltyCurrencyPrice()}
+                          {/if}
+                        </em>
+                      {else}
+                        {if $showprices}
+                          {if $price_mode == '1' || $price_mode == '3'}
+                            <span>{translate key="Price"}:</span>
+                            {if $product->specialOffer}
+                              <p>
+                                <em>{currency value=$product->defaultStock->getSpecialOfferPrice()}</em>
+                              </p>
+
+                              <div class="price__additional-info">
+                                {if $additional_tax_info == '1'}
+                                  {assign var=productTax value=$product->getTax()}
+                                  <div class="tax-additional-info">
+                                    {if ($price_mode == '1' || $price_mode == '3') && $product->defaultStock->getPrice() != $product->defaultStock->getPrice(true)}
+                                      {translate key="incl. %s TAX, excl. shipping costs" s1=$productTax->taxValue->name}
+                                    {elseif $price_mode == '2' && $product->defaultStock->getPrice() != $product->defaultStock->getPrice(true)}
+                                      {translate key="excl. %s TAX, excl. shipping costs" s1=$productTax->taxValue->name}
+                                    {else}
+                                      {translate key="excl. shipping costs"}
+                                    {/if}
+                                  </div>
+                                {/if}
+
+                                {if $product->product->unit_price_calculation && $unit_price_calculation}
+                                  {assign var=unit value=$product->defaultStock->getUnitPriceCalculationUnit()}
+                                  <div class="unit-price-container">
+                                    {if $price_mode == '1' || $price_mode == '3'}
+                                      <i class="default-currency">
+                                        ( 1 {$unit->translation->name} =
+                                        {if $product->specialOffer}
+                                          {currency value=$product->defaultStock->getUnitPriceCalculationSpecialOfferPrice()}
+                                        {else}
+                                          {currency value=$product->defaultStock->getUnitPriceCalculationPrice()}
+                                        {/if}
+                                        )
+                                      </i>
+                                    {elseif $price_mode == '2'}
+                                      <i class="default-currency">
+                                        ( 1 {$unit->translation->name} =
+                                        {if $product->specialOffer}
+                                          {currency value=$product->defaultStock->getUnitPriceCalculationSpecialOfferPrice(true)}
+                                        {else}
+                                          {currency value=$product->defaultStock->getUnitPriceCalculationPrice(true)}
+                                        {/if}
+                                        )
+                                      </i>
+                                    {/if}
+                                  </div>
+                                {/if}
+                              </div>
+
+                              {if $isRegularPriceVisible}
+                                <p class="price__regular">
+                                  {* {translate key="Regular price"}: *}
+                                  <del class="price__inactive">{currency value=$product->defaultStock->getPrice()}</del>
+                                </p>
+                              {/if}
+
+                              {if $showLowestPriceHistory && $isLowestPriceVisible}
+                                <div class="f-row clear price__omnibus">
+                                  {translate key='Lowest price'}:
+                                  <strong class="js__omnibus-price-gross price__inactive">
+                                    {currency value=$product->stock->getHistoricalLowestPrice()}
+                                  </strong>
+                                </div>
+                              {/if}
+
+                              {if $product->currency and $currency->getIdentifier() != $product->currency->getIdentifier()}
+                                <p class="product__currency price__currency">
+                                  {translate key="Price"} ({$product->currency->currency->name|escape}):
+                                  <em
+                                    class="default-currency">{currency id=$product->product->currency_id rate=1 value=$product->defaultStock->getCurrencySpecialOfferPrice()}</em>
+                                </p>
+                              {/if}
+                            {else}
+                              <p>
+                                <em>{currency value=$product->defaultStock->getPrice()}</em>
+                              </p>
+
+                              <div class="price__additional-info">
+                                {if $additional_tax_info == '1'}
+                                  {assign var=productTax value=$product->getTax()}
+                                  <div class="tax-additional-info">
+                                    {if ($price_mode == '1' || $price_mode == '3') && $product->defaultStock->getPrice() != $product->defaultStock->getPrice(true)}
+                                      {translate key="incl. %s TAX, excl. shipping costs" s1=$productTax->taxValue->name}
+                                    {else}
+                                      {translate key="excl. shipping costs"}
+                                    {/if}
+                                  </div>
+                                {/if}
+
+                                {if $product->product->unit_price_calculation && $unit_price_calculation}
+                                  {assign var=unit value=$product->defaultStock->getUnitPriceCalculationUnit()}
+                                  <div class="unit-price-container">
+                                    {if $price_mode == '1' || $price_mode == '3'}
+                                      <i class="default-currency">
+                                        ( 1 {$unit->translation->name} =
+                                        {if $product->specialOffer}
+                                          {currency value=$product->defaultStock->getUnitPriceCalculationSpecialOfferPrice()}
+                                        {else}
+                                          {currency value=$product->defaultStock->getUnitPriceCalculationPrice()}
+                                        {/if}
+                                        )
+                                      </i>
+                                    {/if}
+                                  </div>
+                                {/if}
+                              </div>
+
+                              {if $product->currency and $currency->getIdentifier() != $product->currency->getIdentifier()}
+                                <p class="product__currency price__currency">
+                                  {translate key="Price"} ({$product->currency->currency->name|escape}):
+                                  <em
+                                    class="default-currency">{currency id=$product->product->currency_id rate=1 value=$product->defaultStock->getCurrencyPrice()}</em>
+                                </p>
+                              {/if}
+                            {/if}
+                          {/if}
+
+                          {if $price_mode == '1' || $price_mode == '2'}
+                            {if $price_mode == '1'}
+                              <i class="price-netto">
+                              {/if}
+                              {if $product->specialOffer}
+                                <p>
+                                  {if $price_mode == '1'}
+                                    {translate key="Net price"}:
+                                  {/if}
+                                  <em>{currency value=$product->defaultStock->getSpecialOfferPrice(true)}</em>
+                                </p>
+
+                                <div class="price__additional-info">
+
+                                  {if $additional_tax_info == '2' && $price_mode == '2'}
+                                    {assign var=productTax value=$product->getTax()}
+                                    <div class="tax-additional-info">
+                                      {if $price_mode == '2' && $product->defaultStock->getPrice() != $product->defaultStock->getPrice(true)}
+                                        {translate key="excl. %s TAX, excl. shipping costs" s1=$productTax->taxValue->name}
+                                      {else}
+                                        {translate key="excl. shipping costs"}
+                                      {/if}
+                                    </div>
+                                  {/if}
+
+                                  {if $product->product->unit_price_calculation && $unit_price_calculation}
+                                    {assign var=unit value=$product->defaultStock->getUnitPriceCalculationUnit()}
+                                    <div class="unit-price-container">
+                                      {if $price_mode == '2'}
+                                        <i class="default-currency">
+                                          ( 1 {$unit->translation->name} =
+                                          {if $product->specialOffer}
+                                            {currency value=$product->defaultStock->getUnitPriceCalculationSpecialOfferPrice(true)}
+                                          {else}
+                                            {currency value=$product->defaultStock->getUnitPriceCalculationPrice(true)}
+                                          {/if}
+                                          )
+                                        </i>
+                                      {/if}
+                                    </div>
+                                  {/if}
+                                </div>
+
+                                {if $price_mode == '2'}
+                                  {if $isRegularPriceVisible}
+                                    <p class="price__regular">
+                                      {translate key="Regular price"}:
+                                      <del class="price__inactive">{currency value=$product->defaultStock->getPrice(true)}</del>
+                                    </p>
+                                  {/if}
+
+                                  {if $showLowestPriceHistory && $isLowestPriceVisible}
+                                    <div class="f-row clear price__omnibus">
+                                      {translate key='Lowest price'}:
+                                      <strong class="js__omnibus-price-gross price__inactive">
+                                        {currency value=$product->stock->getHistoricalLowestPrice(true)}
+                                      </strong>
+                                    </div>
+                                  {/if}
+
+                                  {if $product->currency and $currency->getIdentifier() != $product->currency->getIdentifier()}
+                                    <p class="product__currency price__currency">
+                                      {translate key="Price"} ({$product->currency->currency->name|escape}):
+                                      <em
+                                        class="default-currency">{currency id=$product->product->currency_id rate=1 value=$product->defaultStock->getCurrencySpecialOfferPrice(true)}</em>
+                                    </p>
+                                  {/if}
+                                {/if}
+                              {else}
+                                <p>
+                                  {if $price_mode == '1'}
+                                    {translate key="Net price"}:
+                                  {/if}
+                                  <em>{currency value=$product->defaultStock->getPrice(true)}</em>
+                                </p>
+
+                                {if $price_mode == '2'}
+                                  <div class="price__additional-info">
+                                    {if $additional_tax_info == '1'}
+                                      {assign var=productTax value=$product->getTax()}
+                                      <div class="tax-additional-info">
+                                        {if $price_mode == '2' && $product->defaultStock->getPrice() != $product->defaultStock->getPrice(true)}
+                                          {translate key="excl. %s TAX, excl. shipping costs" s1=$productTax->taxValue->name}
+                                        {else}
+                                          {translate key="excl. shipping costs"}
+                                        {/if}
+                                      </div>
+                                    {/if}
+
+                                    {if $product->product->unit_price_calculation && $unit_price_calculation}
+                                      {assign var=unit value=$product->defaultStock->getUnitPriceCalculationUnit()}
+                                      <div class="unit-price-container">
+                                        {if $price_mode == '2'}
+                                          <i class="default-currency">
+                                            ( 1 {$unit->translation->name} =
+                                            {if $product->specialOffer}
+                                              {currency value=$product->defaultStock->getUnitPriceCalculationSpecialOfferPrice(true)}
+                                            {else}
+                                              {currency value=$product->defaultStock->getUnitPriceCalculationPrice(true)}
+                                            {/if}
+                                            )
+                                          </i>
+                                        {/if}
+                                      </div>
+                                    {/if}
+                                  </div>
+
+                                  {if $product->currency and $currency->getIdentifier() != $product->currency->getIdentifier()}
+                                    <p class="product__currency price__currency">
+                                      {translate key="Price"} ({$product->currency->currency->name|escape}):
+                                      <em
+                                        class="default-currency">{currency id=$product->product->currency_id rate=1 value=$product->defaultStock->getCurrencyPrice(true)}</em>
+                                    </p>
+                                  {/if}
+                                {/if}
+                              {/if}
+                              {if $price_mode == '1'}
+                              </i>
+                            {/if}
+                          {/if}
+                        {/if}
+                      {/if}
+                    </div>
+                  </div> -->
                 </div>
 
                 <div class="buttons f-row">
@@ -846,7 +1111,7 @@
 
                           {/if}
 
-                          {if !$product->isBundle() || !$bundleHasVariants}
+                          <!-- {if !$product->isBundle() || !$bundleHasVariants}
                             <button class="addtobasket btn btn-red" type="submit">
                               <img src="{baseDir}/libraries/images/1px.gif" alt="" class="px1" />
                               <span>{if $loyalty_exchange}{translate key="Exchange"}{else}{translate key="Add to cart"}{/if}</span>
@@ -854,7 +1119,7 @@
                           {else}
                             <a href="{route function=$productRoute key=$product->product->product_id productName=$product->translation->name productId=$product->product->product_id}"
                               class="btn btn-red">{if $loyalty_exchange}{translate key="Exchange"}{else}{translate key="Add to cart"}{/if}</a>
-                          {/if}
+                          {/if} -->
                         </fieldset>
                       </form>
                     {elseif $enable_availability_notifier && $product->isEnabledNotifier()}

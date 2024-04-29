@@ -465,6 +465,12 @@ header {
   }
 }
 
+@media (max-width: @breakPointXs) {
+  .basket-contain {
+    max-width: 288px;
+  }
+}
+
 .basket-contain {
   min-width: 280px;
   right: 0;
@@ -508,7 +514,7 @@ header {
       }
 
       &:hover {
-        background-color: @color6;
+        background-color: @maincolor;
         color: @color0;
 
         span {
@@ -1694,7 +1700,7 @@ article {
       .productname {
         font-size: 1.25rem;
         // height: 2.25em;
-        text-align: left;
+        // text-align: left;
         // padding: 0.5rem;
         // margin-bottom: 1.25rem;
         color: @maincolor;
@@ -2115,17 +2121,21 @@ article {
   //     padding-left: 0;
   //   }
   // }
-
-  .price-delivery__wrapper {
+  .price-delivery {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    .price-delivery__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
   }
 
   @media (max-width: @breakPointMd) {
     .price-delivery__wrapper {
       flex-direction: column;
-      align-items: flex-start;
+      align-items: flex-start !important;
       .product__price-delivery {
         margin-top: 1rem;
         align-items: flex-start;
@@ -2215,7 +2225,11 @@ article {
 
             label {
               cursor: default;
+              padding-left: 2rem;
               //   line-height: 1.5;
+              em {
+                color: @alertErrorColor;
+              }
             }
           }
 
@@ -2287,8 +2301,17 @@ article {
           border: none;
           border-top: 1px solid @maincolor;
           border-bottom: 1px solid @maincolor;
-          width: 2.5rem !important;
+          // width: 2.5rem !important;
           min-width: 60px;
+          // height: 100%;
+          padding: 0;
+        }
+      }
+    }
+
+    @media (min-width: @breakPointSm) {
+      .number-wrap {
+        input {
           height: 100%;
         }
       }
@@ -2532,6 +2555,7 @@ article {
       .resetcss {
         padding: 1.25rem;
         padding-top: 0;
+        line-height: 125%;
         .box-sizing();
       }
     }
@@ -4412,4 +4436,8 @@ form input[type="number"].short,
 .categories__item--description {
   width: 100%;
   text-align: center;
+}
+
+.main-price {
+  text-transform: uppercase;
 }

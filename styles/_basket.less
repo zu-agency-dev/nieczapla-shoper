@@ -1055,6 +1055,12 @@
     label[for="input_address_type2"]:not(:empty) {
         border-left: 0;
     }
+
+    .radio-wrap:has(> #input_address_type1:checked) ~ label[for="input_address_type1"]:not(:empty),
+    .radio-wrap:has(> #input_address_type2:checked) ~ label[for="input_address_type2"]:not(:empty) {
+        background-color: @maincolor;
+        color: @colorWhite;
+    }
 }
 
 #wceSendCart-extra {
